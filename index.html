@@ -33,6 +33,7 @@
                 <li><a href="#websites" class="nav-link"><i class="fas fa-globe"></i> مواقعي</a></li>
                 <li><a href="#charging" class="nav-link"><i class="fas fa-shopping-cart"></i> الشحن</a></li>
                 <li><a href="#services" class="nav-link"><i class="fas fa-tools"></i> خدمات</a></li>
+                <li><a href="#reviews" class="nav-link"><i class="fas fa-star"></i> آراء العملاء</a></li>
                 <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> تواصل</a></li>
                 <li><a href="javascript:void(0)" class="nav-link admin-link" onclick="openAdminLogin()">
                     <i class="fas fa-lock"></i> لوحة التحكم
@@ -76,7 +77,7 @@
                 </div>
                 <div class="stat-card">
                     <i class="fas fa-star"></i>
-                    <h3>4.8</h3>
+                    <h3>5.0</h3>
                     <p>تقييم العملاء</p>
                 </div>
             </div>
@@ -123,6 +124,16 @@
                     <p>تواصل معي مباشرة عبر تيليجرام</p>
                     <span class="card-arrow">←</span>
                 </a>
+                <div class="website-card donation-locked-card" onclick="openDonationLogin()">
+                    <div class="card-icon donation-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="donation-lock-badge"><i class="fas fa-lock"></i> للمشتركين فقط</div>
+                    <h3>الدعم المالي 💝</h3>
+                    <p>الدعم عبر الماستر </p>
+                    <span class="card-arrow">←</span>
+                </div>
+
             </div>
         </div>
     </section>
@@ -470,6 +481,56 @@
         </div>
     </section>
 
+
+    <!-- قسم آراء العملاء -->
+    <section id="reviews" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-star"></i>
+                آراء العملاء
+            </h2>
+
+            <!-- إحصائيات التقييم -->
+            <div class="reviews-stats-bar">
+                <div class="overall-rating">
+                    <div class="big-rating" id="overallRating">5.0</div>
+                    <div class="big-stars" id="overallStars">★★★★★</div>
+                    <div class="total-reviews" id="totalReviewsCount">0 تقييم</div>
+                </div>
+                <div class="rating-bars" id="ratingBars">
+                    <div class="rating-bar-row"><span>5 ★</span><div class="rbar"><div class="rbar-fill" id="bar5" style="width:0%"></div></div><span id="cnt5">0</span></div>
+                    <div class="rating-bar-row"><span>4 ★</span><div class="rbar"><div class="rbar-fill" id="bar4" style="width:0%"></div></div><span id="cnt4">0</span></div>
+                    <div class="rating-bar-row"><span>3 ★</span><div class="rbar"><div class="rbar-fill" id="bar3" style="width:0%"></div></div><span id="cnt3">0</span></div>
+                    <div class="rating-bar-row"><span>2 ★</span><div class="rbar"><div class="rbar-fill" id="bar2" style="width:0%"></div></div><span id="cnt2">0</span></div>
+                    <div class="rating-bar-row"><span>1 ★</span><div class="rbar"><div class="rbar-fill" id="bar1" style="width:0%"></div></div><span id="cnt1">0</span></div>
+                </div>
+            </div>
+
+            <!-- فلاتر التصفية -->
+            <div class="reviews-filters">
+                <button class="filter-btn active" onclick="filterReviews(0,this)">الكل</button>
+                <button class="filter-btn" onclick="filterReviews(5,this)">★★★★★</button>
+                <button class="filter-btn" onclick="filterReviews(4,this)">★★★★☆</button>
+                <button class="filter-btn" onclick="filterReviews(3,this)">★★★☆☆</button>
+                <button class="filter-btn" onclick="filterReviews(2,this)">★★☆☆☆</button>
+                <button class="filter-btn" onclick="filterReviews(1,this)">★☆☆☆☆</button>
+            </div>
+
+            <!-- بطاقات الآراء -->
+            <div class="reviews-grid" id="reviewsGrid">
+                <div class="reviews-empty" id="reviewsEmpty">
+                    <i class="fas fa-comment-slash"></i>
+                    <p>لا توجد آراء بعد</p>
+                </div>
+            </div>
+
+            <!-- تمرير تلقائي (Marquee) -->
+            <div class="reviews-marquee-wrap" id="reviewsMarqueeWrap" style="display:none">
+                <div class="reviews-marquee" id="reviewsMarquee"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- قسم التواصل -->
     <section id="contact" class="section">
         <div class="container">
@@ -592,8 +653,8 @@
                                 <p>امسح الكود للدفع</p>
                             </div>
                             <div class="card-info">
-                                <p><strong>رقم البطاقة:</strong> 12</p>
-                                <p><strong>الاسم:</strong> Eyad </p>
+                                <p><strong>رقم البطاقة:</strong> 1234 5678 9012 3456</p>
+                                <p><strong>الاسم:</strong> Eyad Ahmed</p>
                                 <p class="qr-note"><i class="fas fa-info-circle"></i> امسح الكود أو استخدم البيانات أعلاه</p>
                             </div>
                         </div>
@@ -795,6 +856,9 @@
                 <button class="admin-tab" onclick="switchAdminTab(event, 'users')">
                     <i class="fas fa-users"></i> المستخدمين
                 </button>
+                <button class="admin-tab" onclick="switchAdminTab(event, 'reviews')">
+                    <i class="fas fa-star"></i> الآراء
+                </button>
                 <button class="admin-tab" onclick="switchAdminTab(event, 'stats')">
                     <i class="fas fa-chart-pie"></i> الإحصائيات
                 </button>
@@ -883,6 +947,81 @@
                 </div>
             </div>
 
+
+            <!-- تبويب الآراء -->
+            <div id="reviewsTab" class="admin-tab-content">
+                <div class="tab-header">
+                    <h3><i class="fas fa-star"></i> إدارة آراء العملاء</h3>
+                    <button class="add-user-btn" onclick="openAddReviewModal()">
+                        <i class="fas fa-plus"></i> إضافة رأي
+                    </button>
+                </div>
+
+                <!-- نموذج الإضافة -->
+                <div id="addReviewForm" class="add-review-panel" style="display:none">
+                    <h4><i class="fas fa-user-edit"></i> إضافة رأي عميل جديد</h4>
+                    <div class="review-form-grid">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> اسم العميل</label>
+                            <input type="text" id="rv_name" placeholder="اسم العميل" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-tag"></i> الوسم (اختياري)</label>
+                            <input type="text" id="rv_tag" placeholder="مثال: مشترك VIP" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-star"></i> التقييم</label>
+                            <div class="star-picker" id="starPicker">
+                                <span class="sp-star" data-v="1" onclick="pickStar(1)">★</span>
+                                <span class="sp-star" data-v="2" onclick="pickStar(2)">★</span>
+                                <span class="sp-star" data-v="3" onclick="pickStar(3)">★</span>
+                                <span class="sp-star" data-v="4" onclick="pickStar(4)">★</span>
+                                <span class="sp-star" data-v="5" onclick="pickStar(5)">★</span>
+                            </div>
+                            <input type="hidden" id="rv_rating" value="5">
+                        </div>
+                        <div class="form-group rv-img-group">
+                            <label><i class="fas fa-image"></i> صورة الحساب</label>
+                            <div class="rv-img-upload" onclick="document.getElementById('rv_img_input').click()">
+                                <img id="rv_img_preview" src="" alt="" style="display:none;width:70px;height:70px;border-radius:50%;object-fit:cover;border:3px solid #dc143c">
+                                <div id="rv_img_placeholder"><i class="fas fa-cloud-upload-alt"></i><span>رفع صورة</span></div>
+                            </div>
+                            <input type="file" id="rv_img_input" accept="image/*" style="display:none" onchange="previewRvImg(this)">
+                        </div>
+                        <div class="form-group" style="grid-column:1/-1">
+                            <label><i class="fas fa-comment"></i> التعليق</label>
+                            <textarea id="rv_comment" rows="3" placeholder="اكتب رأي العميل هنا..." class="form-input"></textarea>
+                        </div>
+                    </div>
+                    <div class="rv-form-btns">
+                        <button class="rv-save-btn" onclick="saveReview()">
+                            <i class="fas fa-save"></i> حفظ الرأي
+                        </button>
+                        <button class="rv-cancel-btn" onclick="closeAddReviewModal()">
+                            <i class="fas fa-times"></i> إلغاء
+                        </button>
+                    </div>
+                </div>
+
+                <!-- جدول الآراء -->
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>الصورة</th>
+                                <th>الاسم</th>
+                                <th>التقييم</th>
+                                <th>التعليق</th>
+                                <th>التاريخ</th>
+                                <th>إجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reviewsTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
             <div id="statsTab" class="admin-tab-content">
                 <h3><i class="fas fa-chart-pie"></i> الإحصائيات العامة</h3>
                 <div class="stats-cards">
@@ -947,6 +1086,44 @@
         <p id="ffmpegOverlayMsg" style="color:#fff; font-size:1.2rem; font-weight:bold;">جاري تحميل محرك المعالجة...</p>
         <div style="width:300px; height:10px; background:rgba(255,255,255,0.1); border-radius:10px; overflow:hidden;">
             <div id="ffmpegOverlayBar" style="height:100%; width:0%; background:linear-gradient(90deg,#dc143c,#ff3366); transition:width 0.3s; border-radius:10px;"></div>
+        </div>
+    </div>
+
+
+    <!-- Modal الدعم المالي — محمي بكلمة مرور -->
+    <div class="modal" id="donationLoginModal">
+        <div class="modal-content donation-login-modal">
+            <button class="close-btn" onclick="closeDonationLogin()">×</button>
+            <div class="donation-modal-header">
+                <div class="donation-heart-anim">💝</div>
+                <h2 class="modal-title" style="justify-content:center">
+                    الدعم المالي
+                </h2>
+                <p style="color:#888;text-align:center;margin-bottom:1.5rem">
+                    هذا القسم متاح للمشتركين المدفوعين فقط
+                </p>
+            </div>
+            <form id="donationLoginForm" onsubmit="submitDonationLogin(event)">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> اسم المستخدم</label>
+                    <input type="text" id="donationUsername" required placeholder="أدخل اسم المستخدم">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-key"></i> كلمة المرور</label>
+                    <input type="password" id="donationPassword" required placeholder="أدخل كلمة المرور">
+                </div>
+                <div class="error-message" id="donationLoginError"></div>
+                <button type="submit" class="donation-login-btn">
+                    <i class="fas fa-heart"></i> دخول وتقديم الدعم
+                </button>
+            </form>
+            <div class="login-help" style="margin-top:1.2rem">
+                <p>
+                    <i class="fas fa-question-circle"></i>
+                    ليس لديك اشتراك؟
+                    <a href="#contact" onclick="closeDonationLogin(); scrollToSection('contact')">تواصل معنا</a>
+                </p>
+            </div>
         </div>
     </div>
 
