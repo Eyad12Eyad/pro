@@ -7,16 +7,16 @@
 
 /* ════════════════ بيانات المستخدمين ════════════════ */
 const serviceUsers = {
-    'user1' :{ password:'pass123',    registeredDate:'2024-01-15', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'شهري' },
-    'user2' :{ password:'pass456',    registeredDate:'2024-01-20', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'شهري' },
-    'user3' :{ password:'pass789',    registeredDate:'2024-12-01', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'شهري' },
-    'user4' :{ password:'test123',    registeredDate:'2024-12-15', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'شهري' },
-    'user5' :{ password:'demo456',    registeredDate:'2024-11-01', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'أسبوعي'},
-    'user6' :{ password:'access789',  registeredDate:'2024-12-20', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'شهري' },
-    'user7' :{ password:'secure123',  registeredDate:'2024-12-10', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'أسبوعي'},
-    'user8' :{ password:'login456',   registeredDate:'2024-12-25', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'شهري' },
-    'user9' :{ password:'service789', registeredDate:'2024-10-01', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'يومي'  },
-    'user10':{ password:'premium123', registeredDate:'2024-12-28', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'شهري' }
+    'eyad1'    :{ password:'eyad2024@',    registeredDate:'2025-01-01', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'شهري'  },
+    'ahmad'    :{ password:'ahmad123#',    registeredDate:'2025-01-01', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'شهري'  },
+    'mohammed' :{ password:'mo2024$',      registeredDate:'2025-01-01', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'شهري'  },
+    'ali'      :{ password:'ali999*',      registeredDate:'2025-01-01', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'شهري'  },
+    'hassan'   :{ password:'hassan777!',   registeredDate:'2025-01-01', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'شهري'  },
+    'omar'     :{ password:'omar2024&',    registeredDate:'2025-01-01', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'شهري'  },
+    'youssef'  :{ password:'youssef555%',  registeredDate:'2025-01-01', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'أسبوعي'},
+    'khalid'   :{ password:'khalid333^',   registeredDate:'2025-01-01', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'شهري'  },
+    'salem'    :{ password:'salem888(',    registeredDate:'2025-01-01', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'شهري'  },
+    'rami'     :{ password:'rami2024)',    registeredDate:'2025-01-01', expiryDate:'2027-12-31', usageCount:0, subscriptionType:'يومي'  }
 };
 const adminCreds = { username:'admin', password:'admin2025' };
 
@@ -1012,3 +1012,303 @@ document.addEventListener('DOMContentLoaded',()=>{
     console.log('%c🔐 admin / admin2025','color:#ffd700');
     console.log('%c🔧 adminCommands.login() | .stats() | .reset()','color:#888');
 });
+
+/* ════════════════════════════════════════════════
+   ⭐ نظام الآراء والتقييمات
+   ════════════════════════════════════════════════ */
+
+let currentRvRating = 5;
+let rvImgBase64 = '';
+let reviewsFilterRating = 0;
+
+/* ─── فتح / إغلاق فورم الإضافة ─── */
+function openAddReviewModal() {
+    const panel = document.getElementById('addReviewForm');
+    if (!panel) return;
+    panel.style.display = 'block';
+    // reset
+    document.getElementById('rv_name').value    = '';
+    document.getElementById('rv_tag').value     = '';
+    document.getElementById('rv_comment').value = '';
+    rvImgBase64 = '';
+    currentRvRating = 5;
+    document.getElementById('rv_rating').value = 5;
+    const prev = document.getElementById('rv_img_preview');
+    const ph   = document.getElementById('rv_img_placeholder');
+    if (prev) { prev.src=''; prev.style.display='none'; }
+    if (ph)   ph.style.display = 'flex';
+    pickStar(5);
+    panel.scrollIntoView({ behavior:'smooth', block:'nearest' });
+}
+
+function closeAddReviewModal() {
+    const panel = document.getElementById('addReviewForm');
+    if (panel) panel.style.display = 'none';
+}
+
+/* ─── معاينة صورة الحساب ─── */
+function previewRvImg(input) {
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+        rvImgBase64 = e.target.result;
+        const prev = document.getElementById('rv_img_preview');
+        const ph   = document.getElementById('rv_img_placeholder');
+        if (prev) { prev.src = rvImgBase64; prev.style.display = 'block'; }
+        if (ph)   ph.style.display = 'none';
+    };
+    reader.readAsDataURL(file);
+}
+
+/* ─── اختيار النجوم ─── */
+function pickStar(val) {
+    currentRvRating = val;
+    document.getElementById('rv_rating').value = val;
+    document.querySelectorAll('#starPicker .sp-star').forEach((s, i) => {
+        s.classList.toggle('active', i < val);
+    });
+}
+
+/* ─── حفظ الرأي ─── */
+function saveReview() {
+    const name    = document.getElementById('rv_name')?.value.trim();
+    const tag     = document.getElementById('rv_tag')?.value.trim();
+    const comment = document.getElementById('rv_comment')?.value.trim();
+    const rating  = parseInt(document.getElementById('rv_rating')?.value) || 5;
+
+    if (!name)    { alert('⚠️ أدخل اسم العميل'); return; }
+    if (!comment) { alert('⚠️ أدخل التعليق'); return; }
+
+    const review = {
+        id: Date.now(),
+        name, tag, comment, rating,
+        img: rvImgBase64 || '',
+        date: new Date().toLocaleDateString('ar-IQ')
+    };
+
+    const arr = JSON.parse(localStorage.getItem('reviews') || '[]');
+    arr.unshift(review); // الأحدث أولاً
+    localStorage.setItem('reviews', JSON.stringify(arr));
+
+    closeAddReviewModal();
+    loadReviewsTab();       // تحديث جدول الإدارة
+    renderReviewsSection(); // تحديث القسم العام
+    alert('✅ تم إضافة الرأي بنجاح!');
+}
+
+/* ─── حذف رأي ─── */
+function deleteReview(id) {
+    if (!confirm('هل تريد حذف هذا الرأي؟')) return;
+    const arr = JSON.parse(localStorage.getItem('reviews') || '[]').filter(r => r.id !== id);
+    localStorage.setItem('reviews', JSON.stringify(arr));
+    loadReviewsTab();
+    renderReviewsSection();
+}
+
+/* ─── تحميل تبويب الآراء في الإدارة ─── */
+function loadReviewsTab() {
+    const reviews = JSON.parse(localStorage.getItem('reviews') || '[]');
+    const tbody   = document.getElementById('reviewsTableBody');
+    if (!tbody) return;
+
+    if (!reviews.length) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:2rem;color:#888">لا توجد آراء بعد — أضف أول رأي!</td></tr>';
+        return;
+    }
+
+    tbody.innerHTML = reviews.map((r, i) => `
+        <tr>
+            <td>${i + 1}</td>
+            <td>
+                ${r.img
+                    ? `<img src="${r.img}" style="width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid #dc143c">`
+                    : `<div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#dc143c,#ff3366);display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:1.1rem;color:#fff">${r.name.charAt(0)}</div>`
+                }
+            </td>
+            <td>
+                <strong>${esc(r.name)}</strong>
+                ${r.tag ? `<br><small style="color:#ffd700">${esc(r.tag)}</small>` : ''}
+            </td>
+            <td><span style="color:#ffd700;font-size:1.1rem">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</span></td>
+            <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${esc(r.comment)}">${esc(r.comment)}</td>
+            <td>${r.date}</td>
+            <td>
+                <button class="action-btn delete" onclick="deleteReview(${r.id})" title="حذف">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </td>
+        </tr>`).join('');
+}
+
+/* ─── فلترة الآراء ─── */
+function filterReviews(rating, btn) {
+    reviewsFilterRating = rating;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    renderReviewsSection();
+}
+
+/* ─── رسم قسم الآراء العام ─── */
+function renderReviewsSection() {
+    const all     = JSON.parse(localStorage.getItem('reviews') || '[]');
+    const reviews = reviewsFilterRating > 0
+        ? all.filter(r => r.rating === reviewsFilterRating)
+        : all;
+
+    // ── إحصائيات ──
+    const total = all.length;
+    const avg   = total > 0
+        ? (all.reduce((s, r) => s + r.rating, 0) / total).toFixed(1)
+        : '0.0';
+
+    setText('overallRating', avg);
+    setText('totalReviewsCount', total + ' تقييم');
+
+    const filled  = Math.round(parseFloat(avg));
+    const starsEl = document.getElementById('overallStars');
+    if (starsEl) starsEl.textContent = '★'.repeat(filled) + '☆'.repeat(5 - filled);
+
+    [1,2,3,4,5].forEach(n => {
+        const cnt  = all.filter(r => r.rating === n).length;
+        const pct  = total > 0 ? (cnt / total * 100).toFixed(1) : 0;
+        const bar  = document.getElementById('bar' + n);
+        const cntEl= document.getElementById('cnt' + n);
+        if (bar)  bar.style.width = pct + '%';
+        if (cntEl) cntEl.textContent = cnt;
+    });
+
+    // ── البطاقات ──
+    const grid  = document.getElementById('reviewsGrid');
+    const empty = document.getElementById('reviewsEmpty');
+    if (!grid) return;
+
+    if (!reviews.length) {
+        if (empty) empty.style.display = 'flex';
+        // أخفِ البطاقات القديمة
+        grid.querySelectorAll('.review-card').forEach(c => c.remove());
+        updateMarquee(all);
+        return;
+    }
+    if (empty) empty.style.display = 'none';
+
+    // أزل البطاقات القديمة
+    grid.querySelectorAll('.review-card').forEach(c => c.remove());
+
+    reviews.forEach(r => {
+        const card = document.createElement('div');
+        card.className = 'review-card';
+        card.innerHTML = `
+            <div class="rv-card-top">
+                <div class="rv-avatar">
+                    ${r.img
+                        ? `<img src="${r.img}" alt="${esc(r.name)}">`
+                        : `<div class="rv-avatar-letter">${r.name.charAt(0).toUpperCase()}</div>`
+                    }
+                    <div class="rv-verified"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="rv-info">
+                    <h4>${esc(r.name)}</h4>
+                    ${r.tag ? `<span class="rv-tag">${esc(r.tag)}</span>` : ''}
+                    <div class="rv-stars">${renderStars(r.rating)}</div>
+                </div>
+                <div class="rv-date">${r.date}</div>
+            </div>
+            <div class="rv-comment">
+                <i class="fas fa-quote-right rv-quote-icon"></i>
+                ${esc(r.comment)}
+            </div>`;
+        grid.appendChild(card);
+    });
+
+    updateMarquee(all);
+}
+
+function renderStars(n) {
+    let html = '';
+    for (let i = 1; i <= 5; i++) {
+        html += `<span class="rv-star ${i <= n ? 'filled' : ''}">${i <= n ? '★' : '☆'}</span>`;
+    }
+    return html;
+}
+
+function updateMarquee(reviews) {
+    const wrap   = document.getElementById('reviewsMarqueeWrap');
+    const ticker = document.getElementById('reviewsMarquee');
+    if (!wrap || !ticker || reviews.length < 3) {
+        if (wrap) wrap.style.display = 'none'; return;
+    }
+    wrap.style.display = 'block';
+    const items = [...reviews, ...reviews].map(r => `
+        <div class="marquee-item">
+            <span class="marquee-stars">${'★'.repeat(r.rating)}</span>
+            <strong>${esc(r.name)}</strong>: ${esc(r.comment.substring(0, 60))}${r.comment.length > 60 ? '...' : ''}
+        </div>`).join('');
+    ticker.innerHTML = items;
+}
+
+/* ─── ربط switchAdminTab بالآراء ─── */
+const _origSwitch = window.switchAdminTab;
+window.switchAdminTab = function(e, tab) {
+    document.querySelectorAll('.admin-tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.admin-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById(tab + 'Tab')?.classList.add('active');
+    e?.target?.classList.add('active');
+    const map = {
+        orders: loadOrdersTab, messages: loadMessagesTab,
+        services: loadServicesTab, users: loadUsersTab,
+        stats: updateStats, reviews: loadReviewsTab
+    };
+    map[tab]?.();
+};
+
+/* ─── تهيئة عند التحميل ─── */
+document.addEventListener('DOMContentLoaded', () => {
+    renderReviewsSection();
+    // نجوم المختار افتراضياً 5
+    setTimeout(() => pickStar(5), 100);
+});
+
+/* ════════════════════════════════════════════════
+   💝 الدعم المالي — محمي بكلمة مرور المشتركين
+   ════════════════════════════════════════════════ */
+function openDonationLogin() {
+    document.getElementById('donationLoginForm')?.reset();
+    const err = document.getElementById('donationLoginError');
+    if (err) { err.textContent = ''; err.classList.remove('active'); }
+    showModal('donationLoginModal');
+}
+
+function closeDonationLogin() {
+    hideModal('donationLoginModal');
+}
+
+function submitDonationLogin(e) {
+    e.preventDefault();
+    const username = document.getElementById('donationUsername')?.value.trim();
+    const password = document.getElementById('donationPassword')?.value;
+    const errDiv   = document.getElementById('donationLoginError');
+
+    const showErr = msg => {
+        if (errDiv) { errDiv.textContent = msg; errDiv.classList.add('active'); }
+    };
+
+    if (!username || !password) { showErr('❌ أدخل اسم المستخدم وكلمة المرور!'); return; }
+
+    // تحقق من بيانات المشتركين فقط
+    if (!serviceUsers[username]) { showErr('❌ اسم المستخدم غير موجود!'); return; }
+
+    const user = serviceUsers[username];
+    if (user.password !== password) { showErr('❌ كلمة المرور غير صحيحة!'); return; }
+
+    if (new Date() > new Date(user.expiryDate)) {
+        showErr('⚠️ اشتراكك منتهٍ! تواصل معنا للتجديد.');
+        return;
+    }
+
+    // ✅ بيانات صحيحة — أغلق وانتقل للرابط
+    closeDonationLogin();
+    setTimeout(() => {
+        window.open('https://www.donationalerts.com/', '_blank');
+    }, 200);
+}
