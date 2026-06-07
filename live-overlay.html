@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>PUBG Live Overlay — Eyad_Eyad12</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { background:transparent; font-family:'Segoe UI',Arial,sans-serif; }
+
+/* ════ SCOREBOARD CONTAINER ════ */
+.sb {
+    position:fixed;
+    top:20px; right:20px;
+    width:420px;
+    background:rgba(4,9,22,0.93);
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 8px 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.08);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+}
+
+/* ════ HEADER ════ */
+.sb-hdr {
+    background:linear-gradient(135deg,#bb0000,#880000);
+    display:grid;
+    grid-template-columns:40px 1fr 68px 50px 54px;
+    padding:7px 10px 6px;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.92);
+    align-items:center;
+    border-bottom:2px solid #ff3333;
+}
+.sb-hdr .h-team { text-align:left; padding-right:4px; }
+.sb-hdr div { text-align:center; }
+
+/* ════ TEAM ROWS ════ */
+.sb-body { overflow:hidden; }
+.t-row {
+    display:grid;
+    grid-template-columns:40px 1fr 68px 50px 54px;
+    padding:5px 10px 4px;
+    align-items:center;
+    border-bottom:1px solid rgba(255,255,255,0.04);
+    transition:all .45s cubic-bezier(.22,1,.36,1);
+    position:relative;
+}
+.t-row:nth-child(even) { background:rgba(255,255,255,0.035); }
+.t-row.all-alive {
+    background:rgba(0,200,255,0.1);
+    border-left:3px solid #00ccff;
+}
+.t-row.all-alive::before {
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(90deg,rgba(0,200,255,0.06),transparent);
+    pointer-events:none;
+}
+.t-row.elim-row { opacity:.55; }
+
+/* Rank */
+.t-rank {
+    font-weight:900;
+    font-size:13px;
+    text-align:center;
+    color:#aab;
+}
+.t-row:nth-child(1) .t-rank { color:#ffd700; text-shadow:0 0 10px rgba(255,215,0,0.5); }
+.t-row:nth-child(2) .t-rank { color:#c0c0c0; }
+.t-row:nth-child(3) .t-rank { color:#cd7f32; }
+
+/* Team info */
+.t-info {
+    display:flex;
+    align-items:center;
+    gap:5px;
+    overflow:hidden;
+}
+.t-flag { font-size:14px; flex-shrink:0; line-height:1; }
+.t-color-dot {
+    width:8px; height:8px;
+    border-radius:50%;
+    flex-shrink:0;
+}
+.t-name {
+    font-weight:700;
+    font-size:11.5px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    transition:all .3s;
+    letter-spacing:.3px;
+}
+
+/* ════ PLAYER BARS ════ */
+.p-bars {
+    display:flex;
+    gap:3px;
+    align-items:center;
+    justify-content:center;
+}
+.pbar {
+    width:12px;
+    height:26px;
+    border-radius:2px;
+    transition:all .3s ease;
+}
+.pbar.alive {
+    background:linear-gradient(180deg,#44ee55,#22aa33);
+    box-shadow:0 0 6px rgba(68,238,85,0.5);
+}
+.pbar.knocked {
+    background:linear-gradient(180deg,#ee5500,#aa2200);
+    box-shadow:0 0 6px rgba(238,85,0,0.5);
+}
+.pbar.eliminated {
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+/* PTS & ELIMS */
+.t-pts {
+    text-align:center;
+    font-weight:900;
+    font-size:15px;
+    color:#fff;
+}
+.t-elims {
+    text-align:center;
+    font-weight:700;
+    font-size:13px;
+    color:#ff8855;
+}
+
+/* ════ LEGEND ════ */
+.sb-legend {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    padding:5px 10px;
+    background:rgba(0,0,0,0.45);
+    font-size:9px;
+    letter-spacing:.7px;
+    font-weight:700;
+    color:rgba(255,255,255,0.6);
+}
+.lg-item { display:flex; align-items:center; gap:4px; }
+.lg-dot { width:9px; height:9px; border-radius:2px; }
+.lg-dot.alive  { background:#44ee55; }
+.lg-dot.kd     { background:#ee5500; }
+.lg-dot.elim   { background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.15); }
+
+/* ════ EMPTY STATE ════ */
+.sb-empty {
+    padding:2rem;
+    text-align:center;
+    color:rgba(255,255,255,0.3);
+    font-size:.85rem;
+}
+
+/* Highlight animation */
+@keyframes rowHighlight {
+    0%   { background:rgba(255,255,255,0.2); }
+    100% { background:inherit; }
+}
+.row-changed { animation: rowHighlight .6s ease; }
+</style>
+</head>
+<body>
+
+<div class="sb" id="sb">
+    <div class="sb-hdr">
+        <div>RANK</div>
+        <div class="h-team">TEAM</div>
+        <div>ALIVE</div>
+        <div>PTS</div>
+        <div>ELIMS</div>
+    </div>
+    <div class="sb-body" id="sb-body">
+        <div class="sb-empty">في انتظار البيانات...<br>افتح لوحة التحكم في الموقع</div>
+    </div>
+    <div class="sb-legend">
+        <div class="lg-item"><div class="lg-dot alive"></div><span>ALIVE</span></div>
+        <div class="lg-item"><div class="lg-dot kd"></div><span>KNOCKED</span></div>
+        <div class="lg-item"><div class="lg-dot elim"></div><span>ELIMINATED</span></div>
+    </div>
+</div>
+
+<script>
+const KEY = 'pubg_live_eyad12';
+const CH  = 'pubg-live-eyad12';
+let nameToggle = {};
+let prevData   = null;
+let bc;
+
+/* ── BroadcastChannel ── */
+try {
+    bc = new BroadcastChannel(CH);
+    bc.onmessage = e => { if (e.data?.type === 'UPDATE') render(e.data.teams); };
+} catch(_) {}
+
+/* ── Name toggle every 2 s ── */
+setInterval(() => {
+    const data = load();
+    if (!data?.teams?.length) return;
+    data.teams.forEach(t => { nameToggle[t.id] = !nameToggle[t.id]; });
+    render(data.teams);
+}, 2000);
+
+/* ── Poll localStorage ── */
+setInterval(() => {
+    const data = load();
+    const sig  = JSON.stringify(data);
+    if (sig !== prevData) { prevData = sig; if (data?.teams?.length) render(data.teams); }
+}, 400);
+
+function load() {
+    try { return JSON.parse(localStorage.getItem(KEY)); } catch(_) { return null; }
+}
+
+function totalPts(t) { return (t.kills || 0) + (t.placementPts || 0); }
+
+function render(teams) {
+    const body = document.getElementById('sb-body');
+    if (!teams?.length) { body.innerHTML = '<div class="sb-empty">لا توجد فرق</div>'; return; }
+
+    const sorted = [...teams].sort((a, b) => totalPts(b) - totalPts(a));
+
+    // Build rows
+    body.innerHTML = sorted.map((t, i) => {
+        const pts      = totalPts(t);
+        const allAlive = t.players.every(p => p === 'alive');
+        const allElim  = t.players.every(p => p === 'eliminated');
+        const name     = nameToggle[t.id] ? (t.abbr || t.name.slice(0,4).toUpperCase()) : t.name;
+        const bars     = t.players.map(p => `<div class="pbar ${p}"></div>`).join('');
+
+        return `
+        <div class="t-row ${allAlive ? 'all-alive' : ''} ${allElim ? 'elim-row' : ''}" data-id="${t.id}">
+            <div class="t-rank">${i + 1}</div>
+            <div class="t-info">
+                <span class="t-flag">${t.flag || '🏳️'}</span>
+                <div class="t-color-dot" style="background:${t.color || '#aaa'}"></div>
+                <div class="t-name" style="color:${allAlive ? '#fff' : (allElim ? '#666' : '#ddd')}">${name}</div>
+            </div>
+            <div class="p-bars">${bars}</div>
+            <div class="t-pts">${pts}</div>
+            <div class="t-elims">${t.kills || 0}</div>
+        </div>`;
+    }).join('');
+}
+
+/* Initial load */
+const init = load();
+if (init?.teams?.length) render(init.teams);
+</script>
+</body>
+</html>
