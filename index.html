@@ -6,6 +6,8 @@
     <title>Eyad_Eyad12 - الصفحة الرسمية</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="esports-styles.css">
+    <link rel="stylesheet" href="services-upgrade.css">
     <!-- FFmpeg.wasm للمعالجة الحقيقية للملفات -->
     <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.11.6/dist/ffmpeg.min.js"></script>
 </head>
@@ -33,6 +35,7 @@
                 <li><a href="#websites" class="nav-link"><i class="fas fa-globe"></i> مواقعي</a></li>
                 <li><a href="#charging" class="nav-link"><i class="fas fa-shopping-cart"></i> الشحن</a></li>
                 <li><a href="#services" class="nav-link"><i class="fas fa-tools"></i> خدمات</a></li>
+                <li><a href="#alerts" class="nav-link"><i class="fas fa-gamepad"></i> اليرتات</a></li>
                 <li><a href="#reviews" class="nav-link"><i class="fas fa-star"></i> آراء العملاء</a></li>
                 <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> تواصل</a></li>
                 <li><a href="javascript:void(0)" class="nav-link admin-link" onclick="openAdminLogin()">
@@ -57,7 +60,7 @@
                          onerror="this.src='https://ui-avatars.com/api/?name=Eyad&background=dc143c&color=fff&size=200'">
                 </div>
                 <h1 class="name">Eyad_Eyad12</h1>
-                <div class="rose-icon">💻</div>
+                <div class="rose-icon">🌹</div>
                 <p class="description">
                     ✦ مبرمج ومطور محتوى ✦<br>
                     شغف بالإبداع والتقنية
@@ -84,7 +87,7 @@
 
             <div class="footer-home">
                 <p>Made with <span class="heart">♥</span> by Eyad_Eyad12</p>
-                <p>© 2020 All Rights Reserved</p>
+                <p>© 2025 All Rights Reserved</p>
             </div>
         </div>
     </section>
@@ -130,7 +133,7 @@
                     </div>
                     <div class="donation-lock-badge"><i class="fas fa-lock"></i> للمشتركين فقط</div>
                     <h3>الدعم المالي 💝</h3>
-                    <p>الدعم عبر الماستر </p>
+                    <p>ادعمني عبر DonationAlerts — متاح للمشتركين فقط</p>
                     <span class="card-arrow">←</span>
                 </div>
 
@@ -477,10 +480,505 @@
                         <i class="fas fa-lock"></i> تسجيل دخول
                     </button>
                 </div>
+                <!-- 🔗 دمج الفيديو -->
+                <div class="service-card premium-service new-badge-card" onclick="checkServiceAccess('video-merger', 'دمج الفيديو')">
+                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
+                    <div class="service-new-tag">جديد ✨</div>
+                    <div class="service-icon"><i class="fas fa-object-group"></i></div>
+                    <h3>دمج الفيديو</h3>
+                    <p>ادمج عدة مقاطع فيديو في ملف واحد بالترتيب الذي تريده</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> ملفات متعددة</span>
+                        <span><i class="fas fa-check"></i> ترتيب حر</span>
+                        <span><i class="fas fa-check"></i> جودة أصلية</span>
+                    </div>
+                    <button class="service-btn premium-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
+                </div>
+
+                <!-- ⚡ تغيير سرعة الفيديو -->
+                <div class="service-card premium-service new-badge-card" onclick="checkServiceAccess('speed-changer', 'تغيير سرعة الفيديو')">
+                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
+                    <div class="service-new-tag">جديد ✨</div>
+                    <div class="service-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3>تغيير سرعة الفيديو</h3>
+                    <p>سرّع أو أبطئ الفيديو من 0.25x حتى 4x مع الحفاظ على الصوت</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> 0.25x → 4x</span>
+                        <span><i class="fas fa-check"></i> مع الصوت</span>
+                        <span><i class="fas fa-check"></i> سلس</span>
+                    </div>
+                    <button class="service-btn premium-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
+                </div>
+
+                <!-- 🔄 تدوير الفيديو -->
+                <div class="service-card premium-service new-badge-card" onclick="checkServiceAccess('video-rotator', 'تدوير الفيديو')">
+                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
+                    <div class="service-new-tag">جديد ✨</div>
+                    <div class="service-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3>تدوير الفيديو</h3>
+                    <p>صحّح اتجاه الفيديو — دوران 90°، 180°، أو عكس أفقي/رأسي</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> 90° / 180°</span>
+                        <span><i class="fas fa-check"></i> عكس أفقي</span>
+                        <span><i class="fas fa-check"></i> معاينة فورية</span>
+                    </div>
+                    <button class="service-btn premium-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
+                </div>
+
+                <!-- 🎨 مرشحات بصرية -->
+                <div class="service-card premium-service new-badge-card" onclick="checkServiceAccess('video-filters', 'مرشحات الفيديو')">
+                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
+                    <div class="service-new-tag">جديد ✨</div>
+                    <div class="service-icon"><i class="fas fa-palette"></i></div>
+                    <h3>مرشحات بصرية</h3>
+                    <p>طبّق مرشحات ألوان احترافية — دافئ، أبيض وأسود، قديم، حيوي وأكثر</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> 8+ مرشحات</span>
+                        <span><i class="fas fa-check"></i> معاينة فورية</span>
+                        <span><i class="fas fa-check"></i> تحكم بالشدة</span>
+                    </div>
+                    <button class="service-btn premium-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
+                </div>
+
+                <!-- 📝 إضافة نص على الفيديو -->
+                <div class="service-card premium-service new-badge-card" onclick="checkServiceAccess('text-overlay', 'إضافة نص على الفيديو')">
+                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
+                    <div class="service-new-tag">جديد ✨</div>
+                    <div class="service-icon"><i class="fas fa-font"></i></div>
+                    <h3>إضافة نص على الفيديو</h3>
+                    <p>أضف عناوين ونصوص احترافية بألوان وخطوط وموضع تختاره أنت</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> ألوان حرة</span>
+                        <span><i class="fas fa-check"></i> موضع حر</span>
+                        <span><i class="fas fa-check"></i> معاينة مباشرة</span>
+                    </div>
+                    <button class="service-btn premium-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
+                </div>
+
+                <!-- 🤖 محرر AI بالأوامر الطبيعية -->
+                <div class="service-card premium-service new-badge-card ai-card" onclick="checkServiceAccess('ai-editor', 'محرر الذكاء الاصطناعي')">
+                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
+                    <div class="service-new-tag ai-tag">AI 🤖</div>
+                    <div class="service-icon ai-icon"><i class="fas fa-robot"></i></div>
+                    <h3>محرر الذكاء الاصطناعي</h3>
+                    <p>اكتب بلغة عربية طبيعية مثل "اقطع الفيديو من الثانية 10 إلى 30" وسينفذ AI الأمر</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> أوامر عربية</span>
+                        <span><i class="fas fa-check"></i> ذكاء اصطناعي</span>
+                        <span><i class="fas fa-check"></i> تنفيذ تلقائي</span>
+                    </div>
+                    <button class="service-btn ai-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
+                </div>
+                <!-- 🎭 إزالة خلفية الفيديو -->
+                <div class="service-card premium-service new-badge-card" onclick="checkServiceAccess('bg-remover', 'إزالة خلفية الفيديو')">
+                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
+                    <div class="service-new-tag">جديد ✨</div>
+                    <div class="service-icon" style="color:#7c3aed"><i class="fas fa-magic"></i></div>
+                    <h3>إزالة خلفية الفيديو</h3>
+                    <p>احذف الخلفية تلقائياً بـ Chroma Key واختر شفاف أو خلفية بديلة</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> Chroma Key</span>
+                        <span><i class="fas fa-check"></i> اختيار اللون</span>
+                        <span><i class="fas fa-check"></i> خلفية بديلة</span>
+                    </div>
+                    <button class="service-btn premium-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
+                </div>
+
+                <!-- 🌊 دمج فيديو فوق فيديو -->
+                <div class="service-card premium-service new-badge-card" onclick="checkServiceAccess('video-overlay', 'دمج فيديو فوق فيديو')">
+                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
+                    <div class="service-new-tag">جديد ✨</div>
+                    <div class="service-icon" style="color:#00bcd4"><i class="fas fa-layer-group"></i></div>
+                    <h3>دمج فيديو فوق فيديو</h3>
+                    <p>ضع فيديو فوق فيديو آخر مع إزالة Green/Blue Screen تلقائياً</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> Green Screen</span>
+                        <span><i class="fas fa-check"></i> تحكم الحجم</span>
+                        <span><i class="fas fa-check"></i> تحكم الموضع</span>
+                    </div>
+                    <button class="service-btn premium-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
+                </div>
+
+                <!-- 🎵 إضافة صوت على مقطع فيديو -->
+                <div class="service-card premium-service new-badge-card" onclick="checkServiceAccess('audio-adder', 'إضافة صوت على مقطع فيديو')">
+                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
+                    <div class="service-new-tag">جديد ✨</div>
+                    <div class="service-icon" style="color:#00bcd4"><i class="fas fa-music"></i></div>
+                    <h3>إضافة صوت على مقطع فيديو</h3>
+                    <p>ارفع مقطع فيديو وملف صوتي — يتم دمج الصوت مع الفيديو بشكل احترافي مع التحكم بمستوى الصوت والتوقيت</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> دمج احترافي</span>
+                        <span><i class="fas fa-check"></i> تحكم بالصوت</span>
+                        <span><i class="fas fa-check"></i> جودة أصلية</span>
+                    </div>
+                    <div class="format-list">
+                        <span>MP4</span><span>MP3</span><span>WAV</span>
+                    </div>
+                    <button class="service-btn premium-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
+                </div>
+
+                <!-- 🎭 جعل الفيديو شفاف -->
+                <div class="service-card premium-service new-badge-card" onclick="checkServiceAccess('transparent-video', 'جعل الفيديو شفاف')">
+                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
+                    <div class="service-new-tag">جديد ✨</div>
+                    <div class="service-icon" style="color:#a855f7"><i class="fas fa-eye-slash"></i></div>
+                    <h3>جعل الفيديو شفاف</h3>
+                    <p>حوّل يرتك أو أي فيديو إلى WebM شفاف — يشتغل فوق لعبتك بدون خلفية، مثالي للستريمرز على OBS وStreamlabs</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> شفافية كاملة</span>
+                        <span><i class="fas fa-check"></i> Chroma Key</span>
+                        <span><i class="fas fa-check"></i> مثالي للـ OBS</span>
+                    </div>
+                    <div class="format-list">
+                        <span>WebM</span><span>Alpha</span><span>OBS</span>
+                    </div>
+                    <button class="service-btn premium-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
+                </div>
+
+
+<!-- ================================================================
+     esports-cards.html — Eyad_Eyad12
+     10 بطاقات خدمات الإيسبورت — ببجي موبايل
+     
+     طريقة الإضافة:
+     1. افتح index.html
+     2. ابحث عن: <!-- 🎭 جعل الفيديو شفاف → آخر بطاقة خدمة
+     3. ابحث عن السطر بعدها: </div> (إغلاق services-grid)
+     4. الصق هذا الكود قبل ذلك السطر مباشرةً
+     
+     أضف أيضاً في الـ <head>:
+       <link rel="stylesheet" href="esports-styles.css">
+    <link rel="stylesheet" href="services-upgrade.css">
+     
+     أضف قبل </body>:
+       <script src="esports-tools.js" defer></script>
+     ================================================================ -->
+
+<!-- ════════════════════════════════════════════════
+     ✦ قسم خدمات الإيسبورت — ببجي موبايل
+     ════════════════════════════════════════════════ -->
+
+<!-- بانر القسم -->
+<div class="esports-banner" style="margin-bottom:1.5rem">
+    <div class="esports-new-badge">🎮 خدمات الإيسبورت — جديدة</div>
+    <h3>🏆 خدمات الإيسبورت — PUBG Mobile</h3>
+    <p>أدوات احترافية للستريمرز والفرق والبطولات — كل الأدوات تعمل مباشرةً في المتصفح</p>
+</div>
+
+<!-- ─────────── 1. جدول الترتيب ─────────── -->
+<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('lb-creator','منشئ جدول الترتيب')">
+    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
+        <i class="fas fa-trophy"></i> إيسبورت
+    </div>
+    <div class="esports-tag">جديد 🔥</div>
+    <div class="service-icon" style="color:#00e5ff">
+        <i class="fas fa-list-ol"></i>
+    </div>
+    <h3>منشئ جدول الترتيب</h3>
+    <p>صمّم جداول ترتيب احترافية للبطولات مع حساب النقاط والقتلات وتنزيلها كـ PNG</p>
+    <div class="service-features" style="gap:.4rem">
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> حتى 16 فريق</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> تحديث فوري</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> تنزيل PNG</span>
+    </div>
+    <button class="service-btn esports-btn">
+        <i class="fas fa-lock"></i> تسجيل دخول
+    </button>
+</div>
+
+<!-- ─────────── 2. خريطة ببجي التكتيكية ─────────── -->
+<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('pubg-map','خريطة ببجي التكتيكية')">
+    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
+        <i class="fas fa-map"></i> إيسبورت
+    </div>
+    <div class="esports-tag">جديد 🔥</div>
+    <div class="service-icon" style="color:#00e5ff">
+        <i class="fas fa-map-marked-alt"></i>
+    </div>
+    <h3>خريطة ببجي التكتيكية</h3>
+    <p>خريطة تفاعلية لرسم الخطط والاستراتيجيات — تدعم Erangel, Miramar, Sanhok, Vikendi, Livik</p>
+    <div class="service-features" style="gap:.4rem">
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 5 خرائط</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> أدوات رسم</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> تصدير PNG</span>
+    </div>
+    <div class="format-list" style="margin:.5rem 0">
+        <span style="background:rgba(0,229,255,0.1);color:#ccc">✏️ رسم</span>
+        <span style="background:rgba(0,229,255,0.1);color:#ccc">➡️ سهم</span>
+        <span style="background:rgba(0,229,255,0.1);color:#ccc">⭕ دائرة</span>
+        <span style="background:rgba(0,229,255,0.1);color:#ccc">📍 دبوس</span>
+    </div>
+    <button class="service-btn esports-btn">
+        <i class="fas fa-lock"></i> تسجيل دخول
+    </button>
+</div>
+
+<!-- ─────────── 3. إطارات الكاميرا ─────────── -->
+<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('cam-frame','مصمّم إطار الكاميرا')">
+    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
+        <i class="fas fa-camera"></i> إيسبورت
+    </div>
+    <div class="esports-tag">رهيب 🔥</div>
+    <div class="service-icon" style="color:#00e5ff">
+        <i class="fas fa-camera-retro"></i>
+    </div>
+    <h3>مصمّم إطار الكاميرا</h3>
+    <p>أنشئ إطارات كاميرا احترافية لبثك مع توهج نيون وألوان مخصصة — مخرج PNG شفاف جاهز لـ OBS</p>
+    <div class="service-features" style="gap:.4rem">
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 8 أنماط</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> ألوان حرة</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> OBS جاهز</span>
+    </div>
+    <div class="format-list" style="margin:.5rem 0">
+        <span style="background:rgba(0,229,255,0.1);color:#ccc">PNG</span>
+        <span style="background:rgba(0,229,255,0.1);color:#ccc">512×512</span>
+        <span style="background:rgba(0,229,255,0.1);color:#ccc">1080p</span>
+    </div>
+    <button class="service-btn esports-btn">
+        <i class="fas fa-lock"></i> تسجيل دخول
+    </button>
+</div>
+
+<!-- ─────────── 4. أوفرلي البث الكامل ─────────── -->
+<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('stream-overlay','مُنشئ أوفرلي البث الكامل')">
+    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
+        <i class="fas fa-layer-group"></i> إيسبورت
+    </div>
+    <div class="esports-tag">جديد 🔥</div>
+    <div class="service-icon" style="color:#00e5ff">
+        <i class="fas fa-desktop"></i>
+    </div>
+    <h3>مُنشئ أوفرلي البث الكامل</h3>
+    <p>صمّم أوفرلي متكامل للبث — صحة، قتلات، خريطة صغيرة، حالة الفريق، مؤقت الدائرة</p>
+    <div class="service-features" style="gap:.4rem">
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 1920×1080</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 7 عناصر</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 5 ثيمات</span>
+    </div>
+    <button class="service-btn esports-btn">
+        <i class="fas fa-lock"></i> تسجيل دخول
+    </button>
+</div>
+
+<!-- ─────────── 5. منشئ شعارات الفرق ─────────── -->
+<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('team-logo','مُنشئ شعار الفريق')">
+    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
+        <i class="fas fa-shield-alt"></i> إيسبورت
+    </div>
+    <div class="esports-tag">جديد 🔥</div>
+    <div class="service-icon" style="color:#00e5ff">
+        <i class="fas fa-shield-alt"></i>
+    </div>
+    <h3>مُنشئ شعار الفريق</h3>
+    <p>أنشئ شعارات احترافية لفريقك — درع، سداسي، دائرة، نجمة، ماسة مع ألوان مخصصة كاملة</p>
+    <div class="service-features" style="gap:.4rem">
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 5 أشكال</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> ألوان حرة</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> PNG عالي الجودة</span>
+    </div>
+    <button class="service-btn esports-btn">
+        <i class="fas fa-lock"></i> تسجيل دخول
+    </button>
+</div>
+
+<!-- ─────────── 6. بنر البطولات ─────────── -->
+<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('tournament-banner','مصمّم بنر البطولة')">
+    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
+        <i class="fas fa-trophy"></i> إيسبورت
+    </div>
+    <div class="esports-tag">جديد 🔥</div>
+    <div class="service-icon" style="color:#00e5ff">
+        <i class="fas fa-flag"></i>
+    </div>
+    <h3>مصمّم بنر البطولة</h3>
+    <p>صمّم بنرات وإعلانات احترافية لبطولاتك — اسم البطولة، التاريخ، الجائزة بأنماط متعددة</p>
+    <div class="service-features" style="gap:.4rem">
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 5 أنماط</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 3 أحجام</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> PNG احترافي</span>
+    </div>
+    <div class="format-list" style="margin:.5rem 0">
+        <span style="background:rgba(0,229,255,0.1);color:#ccc">1920×1080</span>
+        <span style="background:rgba(0,229,255,0.1);color:#ccc">1280×720</span>
+        <span style="background:rgba(0,229,255,0.1);color:#ccc">1080×1350</span>
+    </div>
+    <button class="service-btn esports-btn">
+        <i class="fas fa-lock"></i> تسجيل دخول
+    </button>
+</div>
+
+<!-- ─────────── 7. إحصائيات اللاعب ─────────── -->
+<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('player-stats','بطاقة إحصائيات اللاعب')">
+    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
+        <i class="fas fa-chart-bar"></i> إيسبورت
+    </div>
+    <div class="esports-tag">جديد 🔥</div>
+    <div class="service-icon" style="color:#00e5ff">
+        <i class="fas fa-chart-line"></i>
+    </div>
+    <h3>بطاقة إحصائيات اللاعب</h3>
+    <p>أنشئ بطاقة إحصائيات تفصيلية — K/D، Win Rate، الضرر، القتلات، الرتبة بتصميم احترافي</p>
+    <div class="service-features" style="gap:.4rem">
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 6 إحصائيات</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 4 ثيمات</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> PNG شاملة</span>
+    </div>
+    <button class="service-btn esports-btn">
+        <i class="fas fa-lock"></i> تسجيل دخول
+    </button>
+</div>
+
+<!-- ─────────── 8. منشئ الهايلايت ─────────── -->
+<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('highlight-maker','منشئ قائمة الهايلايت')">
+    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
+        <i class="fas fa-star"></i> إيسبورت
+    </div>
+    <div class="esports-tag">جديد 🔥</div>
+    <div class="service-icon" style="color:#00e5ff">
+        <i class="fas fa-film"></i>
+    </div>
+    <h3>منشئ قائمة الهايلايت</h3>
+    <p>سجّل توقيتات أفضل لحظاتك أثناء البث — قتلات، Clutch، إنقاذ — وصدّرها كملف منظم</p>
+    <div class="service-features" style="gap:.4rem">
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 8 فئات</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> تصدير TXT</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> تصدير HTML</span>
+    </div>
+    <button class="service-btn esports-btn">
+        <i class="fas fa-lock"></i> تسجيل دخول
+    </button>
+</div>
+
+<!-- ─────────── 9. خلفيات البث ─────────── -->
+<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('stream-bg','مصمّم خلفية البث')">
+    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
+        <i class="fas fa-image"></i> إيسبورت
+    </div>
+    <div class="esports-tag">جديد 🔥</div>
+    <div class="service-icon" style="color:#00e5ff">
+        <i class="fas fa-photo-video"></i>
+    </div>
+    <h3>مصمّم خلفية البث</h3>
+    <p>خلفيات احترافية بثيمات ببجي — فضاء، أدغال، صحراء، فيكندي، نار وأكثر مع تأثيرات بصرية</p>
+    <div class="service-features" style="gap:.4rem">
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 8 ثيمات</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 5 تأثيرات</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> حتى 4K</span>
+    </div>
+    <div class="format-list" style="margin:.5rem 0">
+        <span style="background:rgba(0,229,255,0.1);color:#ccc">1080p</span>
+        <span style="background:rgba(0,229,255,0.1);color:#ccc">1440p</span>
+        <span style="background:rgba(0,229,255,0.1);color:#ccc">4K</span>
+    </div>
+    <button class="service-btn esports-btn">
+        <i class="fas fa-lock"></i> تسجيل دخول
+    </button>
+</div>
+
+<!-- ─────────── 10. الانتقالات السينمائية ─────────── -->
+<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('transitions','مُنشئ الانتقالات السينمائية')">
+    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
+        <i class="fas fa-film"></i> إيسبورت
+    </div>
+    <div class="esports-tag">حصري ⚡</div>
+    <div class="service-icon" style="color:#00e5ff">
+        <i class="fas fa-exchange-alt"></i>
+    </div>
+    <h3>مُنشئ الانتقالات السينمائية</h3>
+    <p>انتقالات احترافية بين مشاهد البث — خاطف، موجة، انفجار، دوران، تشويش وأكثر مع معاينة حية</p>
+    <div class="service-features" style="gap:.4rem">
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 8 أنواع</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> معاينة حية</span>
+        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> OBS جاهز</span>
+    </div>
+    <div class="format-list" style="margin:.5rem 0">
+        <span style="background:rgba(0,229,255,0.1);color:#ccc">PNG</span>
+        <span style="background:rgba(0,229,255,0.1);color:#ccc">CSS Code</span>
+        <span style="background:rgba(0,229,255,0.1);color:#ccc">OBS</span>
+    </div>
+    <button class="service-btn esports-btn">
+        <i class="fas fa-lock"></i> تسجيل دخول
+    </button>
+</div>
+<!-- ─── 11. أوفرلي البث المباشر ─── -->
+<div class="service-card esports-card new-badge-card" style="position:relative;overflow:hidden;border-color:rgba(255,68,68,0.4)!important" onclick="checkServiceAccess('live-overlay','أوفرلي البث المباشر 🔴')">
+    <div class="service-badge" style="background:linear-gradient(135deg,#cc0000,#880000);color:#fff;border:none"><i class="fas fa-broadcast-tower"></i> مباشر</div>
+    <div style="position:absolute;top:12px;left:14px;background:linear-gradient(135deg,#ff4444,#cc0000);color:#fff;padding:3px 10px;border-radius:12px;font-size:.72rem;font-weight:800;z-index:2">🔴 حصري</div>
+    <div class="service-icon" style="color:#ff4444;margin-top:.5rem"><i class="fas fa-trophy"></i></div>
+    <h3 style="color:#ff6655">أوفرلي البث المباشر 🔴</h3>
+    <p>جدول ترتيب حي لبثك — تحكم بحالة اللاعبين والنقاط والقتلات ويظهر على OBS فوراً</p>
+    <div class="service-features" style="gap:.35rem">
+        <span style="background:rgba(255,68,68,.12);color:#ff8855;border-color:rgba(255,68,68,.3)"><i class="fas fa-check"></i> تحديث فوري</span>
+        <span style="background:rgba(255,68,68,.12);color:#ff8855;border-color:rgba(255,68,68,.3)"><i class="fas fa-check"></i> OBS جاهز</span>
+        <span style="background:rgba(255,68,68,.12);color:#ff8855;border-color:rgba(255,68,68,.3)"><i class="fas fa-check"></i> 20 فريق</span>
+    </div>
+    <button class="service-btn" style="background:linear-gradient(135deg,rgba(255,68,68,.15),rgba(200,0,0,.1));border:1.5px solid rgba(255,68,68,.4);color:#ff6655;font-weight:700">
+        <i class="fas fa-lock"></i> تسجيل دخول
+    </button>
+</div>
+
             </div>
         </div>
     </section>
 
+
+
+    <!-- ══ قسم اليرتات ══ -->
+    <section id="alerts" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🎮 اليرتات</h2>
+                <p class="section-subtitle">اليرتات الحصرية الاحترافية — اضغط على اليرت للمعاينة</p>
+            </div>
+
+            <!-- فلاتر -->
+            <div class="alerts-filters" id="alertsFilters">
+                <button class="alert-filter-btn active" onclick="filterAlerts('all',this)">
+                    <i class="fas fa-th"></i> الكل
+                </button>
+                <button class="alert-filter-btn" onclick="filterAlerts('available',this)">
+                    <i class="fas fa-check-circle"></i> متاح
+                </button>
+                <button class="alert-filter-btn" onclick="filterAlerts('sold',this)">
+                    <i class="fas fa-ban"></i> مباع
+                </button>
+            </div>
+
+            <!-- شبكة اليرتات -->
+            <div class="alerts-grid" id="alertsGrid">
+                <div class="alerts-empty" id="alertsEmpty">
+                    <i class="fas fa-gamepad"></i>
+                    <p>لا توجد يرتات بعد — تواصل معنا لإضافة يرتاتك</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal معاينة اليرت -->
+    <div class="modal" id="alertPreviewModal">
+        <div class="modal-content alert-preview-modal">
+            <button class="close-btn" onclick="closeAlertPreview()">×</button>
+            <div id="alertPreviewContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal كود الحصول على اليرت -->
+    <div class="modal" id="alertCodeModal">
+        <div class="modal-content" style="max-width:420px">
+            <button class="close-btn" onclick="hideModal('alertCodeModal')">×</button>
+            <div class="alert-code-modal">
+                <div class="acm-icon">🔑</div>
+                <h3>أدخل رمز الوصول</h3>
+                <p>أدخل الرمز الخاص بك للحصول على اليرت بدون حقوق</p>
+                <input type="text" id="alertCodeInput" class="form-input" placeholder="أدخل الرمز هنا..."
+                       style="text-align:center;font-size:1.2rem;letter-spacing:3px">
+                <div class="error-message" id="alertCodeError"></div>
+                <button class="rv-save-btn" onclick="submitAlertCode()" style="width:100%;margin-top:.8rem;justify-content:center">
+                    <i class="fas fa-unlock"></i> تأكيد الرمز
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- قسم آراء العملاء -->
     <section id="reviews" class="section">
@@ -642,29 +1140,35 @@
                     <input type="tel" id="phoneNumber" required placeholder="07XX XXX XXXX">
                 </div>
 
-                <div class="payment-method-section">
-                    <h3><i class="fas fa-credit-card"></i> طريقة الدفع - ماستر كارد فقط</h3>
-                    <div class="qr-code-section">
-                        <div class="qr-code-container">
-                            <img src="qr-code.jpg" alt="QR Code" class="qr-image"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                            <div class="qr-placeholder" style="display:none;">
-                                <i class="fas fa-qrcode"></i>
-                                <p>امسح الكود للدفع</p>
+                                <div class="payment-method-section">
+                    <div class="card-payment-box">
+                        <div class="cpb-header">
+                            <i class="fas fa-credit-card"></i>
+                            طريقة الدفع
+                            <div class="cpb-mastercard" style="margin-right:auto">
+                                <div class="mc-circle mc-red"></div>
+                                <div class="mc-circle mc-orange"></div>
                             </div>
-                            <div class="card-info">
-                                <p><strong>رقم البطاقة:</strong> 1234 5678 9012 3456</p>
-                                <p><strong>الاسم:</strong> Eyad Ahmed</p>
-                                <p class="qr-note"><i class="fas fa-info-circle"></i> امسح الكود أو استخدم البيانات أعلاه</p>
+                            <span class="cpb-brand">Mastercard</span>
+                        </div>
+                        <div class="cpb-fields">
+                            <div class="cpb-field">
+                                <span class="cpb-label"><i class="fas fa-hashtag"></i> رقم البطاقة</span>
+                                <span class="cpb-value" id="cardNumberDisplay">1234 5678 9012 3456</span>
+                                <button class="cpb-copy-btn" onclick="copyCardNumber()">
+                                    <i class="fas fa-copy"></i> نسخ
+                                </button>
+                            </div>
+                            <div class="cpb-field">
+                                <span class="cpb-label"><i class="fas fa-user"></i> اسم صاحب البطاقة</span>
+                                <span class="cpb-value">Eyad Ahmed</span>
                             </div>
                         </div>
+                        <div class="cpb-note">
+                            <i class="fas fa-info-circle"></i>
+                            بعد التحويل أرفق صورة إثبات الدفع أدناه لإكمال الطلب
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label><i class="fas fa-user-circle"></i> اسم صاحب البطاقة المُحول منها (اختياري)</label>
-                        <input type="text" id="cardName" placeholder="اسم صاحب بطاقة الماستر كارد">
-                    </div>
-
                     <div class="form-group">
                         <label class="required-label">
                             <i class="fas fa-camera"></i>
@@ -725,24 +1229,37 @@
                     <label><i class="fas fa-phone"></i> رقم الهاتف</label>
                     <input type="tel" id="subPhone" required placeholder="07XX XXX XXXX">
                 </div>
-                <div class="payment-method-section">
-                    <h3><i class="fas fa-credit-card"></i> طريقة الدفع - ماستر كارد</h3>
-                    <div class="qr-code-section">
-                        <div class="qr-code-container">
-                            <img src="qr-code.jpg" alt="QR Code" class="qr-image"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                            <div class="qr-placeholder" style="display:none;">
-                                <i class="fas fa-qrcode"></i>
-                                <p>امسح الكود للدفع</p>
+                                <div class="payment-method-section">
+                    <div class="card-payment-box">
+                        <div class="cpb-header">
+                            <i class="fas fa-credit-card"></i>
+                            طريقة الدفع
+                            <div class="cpb-mastercard" style="margin-right:auto">
+                                <div class="mc-circle mc-red"></div>
+                                <div class="mc-circle mc-orange"></div>
                             </div>
-                            <div class="card-info">
-                                <p><strong>رقم البطاقة:</strong> 1234 5678 9012 3456</p>
-                                <p><strong>الاسم:</strong> Eyad Ahmed</p>
-                                <p class="qr-note"><i class="fas fa-info-circle"></i> امسح الكود أو استخدم البيانات</p>
+                            <span class="cpb-brand">Mastercard</span>
+                        </div>
+                        <div class="cpb-fields">
+                            <div class="cpb-field">
+                                <span class="cpb-label"><i class="fas fa-hashtag"></i> رقم البطاقة</span>
+                                <span class="cpb-value">1234 5678 9012 3456</span>
+                                <button class="cpb-copy-btn" onclick="copyCardNumber()">
+                                    <i class="fas fa-copy"></i> نسخ
+                                </button>
+                            </div>
+                            <div class="cpb-field">
+                                <span class="cpb-label"><i class="fas fa-user"></i> اسم صاحب البطاقة</span>
+                                <span class="cpb-value">Eyad Ahmed</span>
                             </div>
                         </div>
+                        <div class="cpb-note">
+                            <i class="fas fa-info-circle"></i>
+                            بعد التحويل أرفق صورة إثبات الدفع أدناه لإكمال الطلب
+                        </div>
                     </div>
-                    <div class="form-group">
+
+<div class="form-group">
                         <label class="required-label">
                             <i class="fas fa-camera"></i>
                             إرفاق صورة إثبات الدفع
@@ -861,6 +1378,24 @@
                 </button>
                 <button class="admin-tab" onclick="switchAdminTab(event, 'stats')">
                     <i class="fas fa-chart-pie"></i> الإحصائيات
+                </button>
+                <button class="admin-tab" onclick="switchAdminTab(event, 'alerts_admin')">
+                    <i class="fas fa-gamepad"></i> اليرتات
+                </button>
+                <button class="admin-tab" onclick="switchAdminTab(event, 'offers')">
+                    <i class="fas fa-tags"></i> العروض
+                </button>
+                <button class="admin-tab" onclick="switchAdminTab(event, 'timers')">
+                    <i class="fas fa-clock"></i> العدادات
+                </button>
+                <button class="admin-tab" onclick="switchAdminTab(event, 'packages')">
+                    <i class="fas fa-gem"></i> الباقات
+                </button>
+                <button class="admin-tab" onclick="switchAdminTab(event, 'allusers')">
+                    <i class="fas fa-users-cog"></i> المستخدمون
+                </button>
+                <button class="admin-tab" onclick="switchAdminTab(event, 'sitecontrol')">
+                    <i class="fas fa-sliders-h"></i> تحكم الموقع
                 </button>
             </div>
 
@@ -1022,8 +1557,539 @@
                 </div>
             </div>
 
+
+
+            <!-- ⏰ تبويب العدادات -->
+            <div id="timersTab" class="admin-tab-content">
+                <div class="tab-header">
+                    <h3><i class="fas fa-clock"></i> إدارة العدادات التنازلية</h3>
+                    <button class="add-user-btn" onclick="showAddTimerForm()">
+                        <i class="fas fa-plus"></i> إضافة عداد
+                    </button>
+                </div>
+
+                <div id="addTimerForm" class="add-review-panel" style="display:none">
+                    <h4><i class="fas fa-hourglass-start"></i> إضافة عداد تنازلي جديد</h4>
+                    <div class="review-form-grid">
+                        <div class="form-group">
+                            <label><i class="fas fa-heading"></i> عنوان العداد</label>
+                            <input type="text" id="tm_title" class="form-input" placeholder="مثال: ينتهي العرض الخاص قريباً!">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-map-marker-alt"></i> مكان الظهور</label>
+                            <select id="tm_section" class="form-input">
+                                <option value="home">الصفحة الرئيسية</option>
+                                <option value="charging">قسم الشحن (أعلى)</option>
+                                <option value="services">قسم الخدمات (أعلى)</option>
+                                <option value="all_featured">فوق كل باقة مميزة</option>
+                                <option value="topbar">شريط علوي ثابت</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-palette"></i> التصميم</label>
+                            <select id="tm_style" class="form-input">
+                                <option value="fire">🔥 ناري أحمر</option>
+                                <option value="gold">⭐ ذهبي فاخر</option>
+                                <option value="neon">💎 نيون أزرق</option>
+                                <option value="dark">🌑 داكن أنيق</option>
+                                <option value="gradient">🌈 متدرج</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-calendar-alt"></i> تاريخ الانتهاء</label>
+                            <input type="datetime-local" id="tm_enddate" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-link"></i> رابط الزر (اختياري)</label>
+                            <input type="text" id="tm_link" class="form-input" placeholder="#charging">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-tag"></i> نص الزر</label>
+                            <input type="text" id="tm_btntext" class="form-input" placeholder="احصل على العرض" value="احصل على العرض">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-toggle-on"></i> الحالة</label>
+                            <select id="tm_active" class="form-input">
+                                <option value="1">نشط ✅</option>
+                                <option value="0">معطّل ⛔</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="rv-form-btns">
+                        <button class="rv-save-btn" onclick="saveTimer()"><i class="fas fa-save"></i> حفظ وتطبيق</button>
+                        <button class="rv-cancel-btn" onclick="closeAddTimerForm()"><i class="fas fa-times"></i> إلغاء</button>
+                    </div>
+                </div>
+
+                <!-- معاينة العدادات الحالية -->
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr><th>#</th><th>العنوان</th><th>المكان</th><th>التصميم</th><th>ينتهي</th><th>الحالة</th><th>إجراءات</th></tr>
+                        </thead>
+                        <tbody id="timersTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 💎 تبويب الباقات -->
+            <div id="packagesTab" class="admin-tab-content">
+                <div class="tab-header">
+                    <h3><i class="fas fa-gem"></i> إدارة باقات الخدمات والشحن</h3>
+                    <button class="add-user-btn" onclick="showAddPackageForm()">
+                        <i class="fas fa-plus"></i> إضافة باقة
+                    </button>
+                </div>
+
+                <!-- تبديل بين الشحن والخدمات -->
+                <div class="pkg-type-tabs">
+                    <button class="pkg-type-btn active" onclick="switchPkgType(this,'charge')">
+                        <i class="fas fa-gem"></i> باقات الشحن
+                    </button>
+                    <button class="pkg-type-btn" onclick="switchPkgType(this,'service')">
+                        <i class="fas fa-tools"></i> باقات الخدمات
+                    </button>
+                </div>
+
+                <!-- فورم إضافة/تعديل باقة -->
+                <div id="addPackageForm" class="add-review-panel" style="display:none">
+                    <h4 id="pkgFormTitle"><i class="fas fa-plus-circle"></i> إضافة باقة جديدة</h4>
+                    <input type="hidden" id="pkg_editId" value="">
+                    <input type="hidden" id="pkg_type" value="charge">
+                    <div class="review-form-grid">
+                        <div class="form-group">
+                            <label>الاسم / الكمية</label>
+                            <input type="text" id="pkg_name" class="form-input" placeholder="مثال: 30 شدة أو يومي">
+                        </div>
+                        <div class="form-group">
+                            <label>السعر (IQD)</label>
+                            <input type="text" id="pkg_price" class="form-input" placeholder="6,500">
+                        </div>
+                        <div class="form-group">
+                            <label>الأيقونة (Emoji)</label>
+                            <input type="text" id="pkg_icon" class="form-input" placeholder="💎" maxlength="4">
+                        </div>
+                        <div class="form-group">
+                            <label>نسبة الخصم (اختياري)</label>
+                            <input type="text" id="pkg_discount" class="form-input" placeholder="وفر 10%">
+                        </div>
+                        <div class="form-group">
+                            <label>شارة (اختياري)</label>
+                            <input type="text" id="pkg_badge" class="form-input" placeholder="الأكثر شعبية">
+                        </div>
+                        <div class="form-group">
+                            <label>تمييز البطاقة</label>
+                            <select id="pkg_featured" class="form-input">
+                                <option value="">عادي</option>
+                                <option value="featured">مميز ⭐</option>
+                                <option value="premium">بريميوم 👑</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="grid-column:1/-1">
+                            <label>المميزات (كل ميزة في سطر)</label>
+                            <textarea id="pkg_features" class="form-input" rows="4" placeholder="تسليم خلال 24h&#10;ضمان 100%&#10;دعم 24/7"></textarea>
+                        </div>
+                    </div>
+                    <div class="rv-form-btns">
+                        <button class="rv-save-btn" onclick="savePackage()"><i class="fas fa-save"></i> حفظ الباقة</button>
+                        <button class="rv-cancel-btn" onclick="closePackageForm()"><i class="fas fa-times"></i> إلغاء</button>
+                    </div>
+                </div>
+
+                <!-- جدول الباقات -->
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr><th>#</th><th>الاسم</th><th>السعر</th><th>الخصم</th><th>النوع</th><th>إجراءات</th></tr>
+                        </thead>
+                        <tbody id="packagesTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 👥 تبويب المستخدمون الكامل -->
+            <div id="allusersTab" class="admin-tab-content">
+                <div class="tab-header">
+                    <h3><i class="fas fa-users-cog"></i> إدارة المستخدمين الشاملة</h3>
+                    <button class="add-user-btn" onclick="showAddFullUserForm()">
+                        <i class="fas fa-user-plus"></i> إضافة مستخدم
+                    </button>
+                </div>
+
+                <!-- فلتر النوع -->
+                <div class="pkg-type-tabs">
+                    <button class="pkg-type-btn active" onclick="filterUserType(this,'all')">
+                        <i class="fas fa-users"></i> الكل
+                    </button>
+                    <button class="pkg-type-btn" onclick="filterUserType(this,'service')">
+                        <i class="fas fa-tools"></i> خدمات
+                    </button>
+                    <button class="pkg-type-btn" onclick="filterUserType(this,'support')">
+                        <i class="fas fa-headset"></i> دعم الموقع
+                    </button>
+                </div>
+
+                <!-- فورم إضافة مستخدم -->
+                <div id="addFullUserForm" class="add-review-panel" style="display:none">
+                    <h4><i class="fas fa-user-plus"></i> إضافة مستخدم جديد</h4>
+                    <div class="review-form-grid">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> اسم المستخدم</label>
+                            <input type="text" id="fu_username" class="form-input" placeholder="username">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-key"></i> كلمة المرور</label>
+                            <input type="text" id="fu_password" class="form-input" placeholder="password123">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-tag"></i> نوع الحساب</label>
+                            <select id="fu_role" class="form-input">
+                                <option value="service">مستخدم خدمات 🛠️</option>
+                                <option value="support">دعم الموقع 🌐</option>
+                                <option value="both">كلاهما 🔑</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-calendar-alt"></i> نوع الاشتراك</label>
+                            <select id="fu_subtype" class="form-input">
+                                <option value="يومي">يومي (24 ساعة)</option>
+                                <option value="أسبوعي">أسبوعي (7 أيام)</option>
+                                <option value="شهري" selected>شهري (30 يوم)</option>
+                                <option value="سنوي">سنوي (365 يوم)</option>
+                                <option value="مخصص">مخصص</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="fu_custom_wrap" style="display:none">
+                            <label><i class="fas fa-calendar"></i> تاريخ انتهاء مخصص</label>
+                            <input type="date" id="fu_customdate" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-shield-alt"></i> الصلاحيات</label>
+                            <div class="perms-grid">
+                                <label class="perm-check"><input type="checkbox" id="perm_video" checked> <span>✂️ تقطيع فيديو</span></label>
+                                <label class="perm-check"><input type="checkbox" id="perm_convert" checked> <span>🔄 تحويل صيغ</span></label>
+                                <label class="perm-check"><input type="checkbox" id="perm_audio" checked> <span>🎵 استخراج صوت</span></label>
+                                <label class="perm-check"><input type="checkbox" id="perm_compress" checked> <span>📦 ضغط فيديو</span></label>
+                                <label class="perm-check"><input type="checkbox" id="perm_merge" checked> <span>🔗 دمج فيديو</span></label>
+                                <label class="perm-check"><input type="checkbox" id="perm_bg" checked> <span>🎭 إزالة خلفية</span></label>
+                                <label class="perm-check"><input type="checkbox" id="perm_overlay" checked> <span>🌊 دمج فوق فيديو</span></label>
+                                <label class="perm-check"><input type="checkbox" id="perm_ai"> <span>🤖 محرر AI</span></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-sticky-note"></i> ملاحظة (اختياري)</label>
+                            <input type="text" id="fu_note" class="form-input" placeholder="مثال: عميل VIP">
+                        </div>
+                    </div>
+                    <div class="rv-form-btns">
+                        <button class="rv-save-btn" onclick="saveFullUser()"><i class="fas fa-save"></i> حفظ المستخدم</button>
+                        <button class="rv-cancel-btn" onclick="closeFullUserForm()"><i class="fas fa-times"></i> إلغاء</button>
+                    </div>
+                </div>
+
+                <!-- جدول المستخدمين -->
+                <div class="table-container">
+                    <table class="admin-table" id="allUsersTable">
+                        <thead>
+                            <tr>
+                                <th>المستخدم</th><th>النوع</th><th>الاشتراك</th>
+                                <th>ينتهي</th><th>الصلاحيات</th><th>الاستخدام</th>
+                                <th>الحالة</th><th>ملاحظة</th><th>إجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="allUsersTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <!-- تبويب إدارة اليرتات -->
+            <div id="alerts_adminTab" class="admin-tab-content">
+                <div class="tab-header">
+                    <h3><i class="fas fa-gamepad"></i> إدارة اليرتات</h3>
+                    <button class="add-user-btn" onclick="showAddAlertForm()">
+                        <i class="fas fa-plus"></i> إضافة يرت
+                    </button>
+                </div>
+
+                <!-- إعدادات عامة -->
+                <div class="control-section" style="margin-bottom:1.5rem">
+                    <div class="control-section-header"><i class="fas fa-key"></i> رمز الوصول العالمي للحصول على اليرت بدون حقوق</div>
+                    <div style="display:flex;gap:.8rem;align-items:center">
+                        <input type="text" id="alertGlobalCode" class="form-input"
+                               placeholder="مثال: EYAD2025" style="max-width:260px;font-family:monospace;letter-spacing:2px">
+                        <button class="rv-save-btn" onclick="saveAlertGlobalCode()">
+                            <i class="fas fa-save"></i> حفظ الرمز
+                        </button>
+                    </div>
+                    <small style="color:#888;margin-top:.4rem;display:block">
+                        المستخدم الذي يُدخل هذا الرمز يحصل على اليرت بدون علامة مائية
+                    </small>
+                </div>
+
+                <!-- فورم إضافة يرت -->
+                <div id="addAlertForm" class="add-review-panel" style="display:none">
+                    <h4><i class="fas fa-plus-circle"></i> <span id="alertFormTitle">إضافة يرت جديد</span></h4>
+                    <input type="hidden" id="alert_editId" value="">
+                    <div class="review-form-grid">
+                        <div class="form-group">
+                            <label>اسم اليرت</label>
+                            <input type="text" id="al_name" class="form-input" placeholder="اسم اليرت">
+                        </div>
+                        <div class="form-group">
+                            <label>السعر (IQD)</label>
+                            <input type="text" id="al_price" class="form-input" placeholder="15,000">
+                        </div>
+                        <div class="form-group">
+                            <label>السعر القديم (للتخفيض)</label>
+                            <input type="text" id="al_oldprice" class="form-input" placeholder="20,000 (اتركه فارغاً بلا تخفيض)">
+                        </div>
+                        <div class="form-group">
+                            <label>نسبة الخصم (اختياري)</label>
+                            <input type="text" id="al_discount" class="form-input" placeholder="50%-">
+                        </div>
+                        <div class="form-group">
+                            <label>الحالة</label>
+                            <select id="al_status" class="form-input">
+                                <option value="available">متاح 🟢</option>
+                                <option value="sold">مباع 🔴</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>شارة (مميز / جديد / الخ)</label>
+                            <input type="text" id="al_badge" class="form-input" placeholder="مميز ⚡">
+                        </div>
+                        <div class="form-group" style="grid-column:1/-1">
+                            <label>فيديو اليرت (Base64 — ارفع ثم انسخ)</label>
+                            <input type="file" id="al_videoFile" accept="video/*"
+                                   onchange="handleAlertVideoUpload(this)"
+                                   class="form-input" style="padding:8px">
+                            <div id="al_videoStatus" style="color:#888;font-size:.82rem;margin-top:.3rem"></div>
+                        </div>
+                        <div class="form-group" style="grid-column:1/-1">
+                            <label>رمز خاص لهذا اليرت (يتجاوز الرمز العالمي)</label>
+                            <input type="text" id="al_code" class="form-input"
+                                   placeholder="رمز خاص بهذا اليرت (اختياري)">
+                        </div>
+                    </div>
+                    <div class="rv-form-btns">
+                        <button class="rv-save-btn" onclick="saveAlert()"><i class="fas fa-save"></i> حفظ اليرت</button>
+                        <button class="rv-cancel-btn" onclick="closeAlertForm()"><i class="fas fa-times"></i> إلغاء</button>
+                    </div>
+                </div>
+
+                <!-- جدول اليرتات -->
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr><th>#</th><th>اسم اليرت</th><th>السعر</th><th>الحالة</th><th>فيديو</th><th>إجراءات</th></tr>
+                        </thead>
+                        <tbody id="alertsAdminBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- تبويب العروض والإعلانات -->
+            <div id="offersTab" class="admin-tab-content">
+                <div class="tab-header">
+                    <h3><i class="fas fa-tags"></i> إدارة العروض والإعلانات</h3>
+                    <button class="add-user-btn" onclick="showAddOfferForm()">
+                        <i class="fas fa-plus"></i> إضافة عرض
+                    </button>
+                </div>
+
+                <!-- فورم إضافة عرض -->
+                <div id="addOfferForm" class="add-review-panel" style="display:none">
+                    <h4><i class="fas fa-bullhorn"></i> إضافة عرض / إعلان جديد</h4>
+                    <div class="review-form-grid">
+                        <div class="form-group">
+                            <label><i class="fas fa-heading"></i> عنوان العرض</label>
+                            <input type="text" id="of_title" class="form-input" placeholder="مثال: خصم 20% اليوم فقط!">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-align-right"></i> نص العرض</label>
+                            <input type="text" id="of_text" class="form-input" placeholder="تفاصيل العرض...">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-map-marker-alt"></i> الموقع</label>
+                            <select id="of_position" class="form-input">
+                                <option value="top">شريط علوي (فوق الصفحة)</option>
+                                <option value="home">القسم الرئيسي</option>
+                                <option value="charging">قسم الشحن</option>
+                                <option value="services">قسم الخدمات</option>
+                                <option value="popup">نافذة منبثقة</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-paint-brush"></i> لون الخلفية</label>
+                            <div style="display:flex;gap:.5rem;align-items:center">
+                                <input type="color" id="of_color" value="#dc143c" class="form-input" style="height:46px;padding:4px;width:70px">
+                                <div style="display:flex;gap:.4rem;flex-wrap:wrap">
+                                    <button class="color-preset" style="background:#dc143c" onclick="document.getElementById('of_color').value='#dc143c'"></button>
+                                    <button class="color-preset" style="background:#ffd700" onclick="document.getElementById('of_color').value='#ffd700'"></button>
+                                    <button class="color-preset" style="background:#4CAF50" onclick="document.getElementById('of_color').value='#4CAF50'"></button>
+                                    <button class="color-preset" style="background:#2196F3" onclick="document.getElementById('of_color').value='#2196F3'"></button>
+                                    <button class="color-preset" style="background:#7c3aed" onclick="document.getElementById('of_color').value='#7c3aed'"></button>
+                                    <button class="color-preset" style="background:linear-gradient(135deg,#dc143c,#7c3aed)" onclick="document.getElementById('of_color').value='#9c1a6c'"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-clock"></i> عداد تنازلي (ساعات)</label>
+                            <input type="number" id="of_hours" class="form-input" placeholder="0 = بلا عداد" min="0" max="168" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-link"></i> رابط الزر (اختياري)</label>
+                            <input type="text" id="of_link" class="form-input" placeholder="#charging أو رابط خارجي">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-tag"></i> نص الزر</label>
+                            <input type="text" id="of_btntext" class="form-input" placeholder="اشترِ الآن" value="اشترِ الآن">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-toggle-on"></i> الحالة</label>
+                            <select id="of_active" class="form-input">
+                                <option value="1">نشط ✅</option>
+                                <option value="0">معطّل ⛔</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="rv-form-btns">
+                        <button class="rv-save-btn" onclick="saveOffer()"><i class="fas fa-save"></i> حفظ العرض</button>
+                        <button class="rv-cancel-btn" onclick="closeAddOfferForm()"><i class="fas fa-times"></i> إلغاء</button>
+                    </div>
+                </div>
+
+                <!-- جدول العروض -->
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr><th>#</th><th>العنوان</th><th>الموقع</th><th>العداد</th><th>الحالة</th><th>إجراءات</th></tr>
+                        </thead>
+                        <tbody id="offersTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- تبويب تحكم الموقع الكامل -->
+            <div id="sitecontrolTab" class="admin-tab-content">
+                <h3><i class="fas fa-sliders-h"></i> تحكم كامل بالموقع</h3>
+
+                <!-- معلومات الصفحة الرئيسية -->
+                <div class="control-section">
+                    <div class="control-section-header">
+                        <i class="fas fa-home"></i> الصفحة الرئيسية
+                    </div>
+                    <div class="control-grid">
+                        <div class="form-group">
+                            <label>الاسم الرئيسي</label>
+                            <input type="text" id="sc_name" class="form-input" value="Eyad_Eyad12">
+                        </div>
+                        <div class="form-group">
+                            <label>الوصف</label>
+                            <input type="text" id="sc_desc" class="form-input" value="✦ مبرمج ومطور محتوى ✦">
+                        </div>
+                        <div class="form-group">
+                            <label>عدد العملاء</label>
+                            <input type="text" id="sc_clients" class="form-input" value="1000+">
+                        </div>
+                        <div class="form-group">
+                            <label>عدد المشاريع</label>
+                            <input type="text" id="sc_projects" class="form-input" value="500+">
+                        </div>
+                        <div class="form-group">
+                            <label>التقييم</label>
+                            <input type="text" id="sc_rating" class="form-input" value="5.0">
+                        </div>
+                        <div class="form-group">
+                            <label>لون الموقع الرئيسي</label>
+                            <input type="color" id="sc_primarycolor" value="#dc143c" class="form-input" style="height:46px;padding:4px" onchange="applyPrimaryColor(this.value)">
+                        </div>
+                    </div>
+                    <button class="rv-save-btn" onclick="saveSiteControl()"><i class="fas fa-save"></i> حفظ التغييرات وتطبيقها</button>
+                </div>
+
+                <!-- إدارة الأقسام -->
+                <div class="control-section">
+                    <div class="control-section-header">
+                        <i class="fas fa-eye"></i> إظهار / إخفاء الأقسام
+                    </div>
+                    <div class="sections-toggle-grid">
+                        <div class="toggle-row"><span>قسم مواقعي</span><label class="toggle-switch"><input type="checkbox" id="sc_show_websites" checked onchange="toggleSection('websites',this.checked)"><span class="toggle-slider"></span></label></div>
+                        <div class="toggle-row"><span>قسم الشحن</span><label class="toggle-switch"><input type="checkbox" id="sc_show_charging" checked onchange="toggleSection('charging',this.checked)"><span class="toggle-slider"></span></label></div>
+                        <div class="toggle-row"><span>قسم الخدمات</span><label class="toggle-switch"><input type="checkbox" id="sc_show_services" checked onchange="toggleSection('services',this.checked)"><span class="toggle-slider"></span></label></div>
+                        <div class="toggle-row"><span>قسم الآراء</span><label class="toggle-switch"><input type="checkbox" id="sc_show_reviews" checked onchange="toggleSection('reviews',this.checked)"><span class="toggle-slider"></span></label></div>
+                        <div class="toggle-row"><span>قسم التواصل</span><label class="toggle-switch"><input type="checkbox" id="sc_show_contact" checked onchange="toggleSection('contact',this.checked)"><span class="toggle-slider"></span></label></div>
+                        <div class="toggle-row"><span>زر AI Chat</span><label class="toggle-switch"><input type="checkbox" id="sc_show_chat" checked onchange="toggleElement('aiChatBtn',this.checked)"><span class="toggle-slider"></span></label></div>
+                        <div class="toggle-row"><span>ويدجت النقاط</span><label class="toggle-switch"><input type="checkbox" id="sc_show_gaming" checked onchange="toggleElement('gamingWidget',this.checked)"><span class="toggle-slider"></span></label></div>
+                    </div>
+                </div>
+
+                <!-- إعدادات الشحن السريع -->
+                <div class="control-section">
+                    <div class="control-section-header">
+                        <i class="fas fa-gem"></i> تعديل أسعار الشحن السريع
+                    </div>
+                    <div id="chargingPriceControls" class="control-grid"></div>
+                    <button class="rv-save-btn" onclick="saveChargingPrices()"><i class="fas fa-save"></i> تحديث الأسعار</button>
+                </div>
+</div>
+                </div>
+
+
+                <!-- إدارة الخدمات -->
+                <div class="control-section">
+                    <div class="control-section-header">
+                        <i class="fas fa-tools"></i> إدارة الخدمات — إظهار/إخفاء وتعديل الأسماء
+                    </div>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr><th>الخدمة</th><th>إظهار</th><th>الاسم</th><th>حفظ</th></tr>
+                            </thead>
+                            <tbody id="servicesControlBody">
+                                <tr><td>✂️ تقطيع الفيديو</td><td><label class="toggle-switch"><input type="checkbox" checked onchange="toggleServiceVisibility('video-trimmer',this.checked)"><span class="toggle-slider"></span></label></td><td><input type="text" value="تقطيع الفيديو" class="form-input svc-name-inp" data-svc="video-trimmer" style="padding:4px 8px;font-size:.82rem;max-width:200px"></td><td><button class="action-btn view" onclick="saveServiceNameInline(this)"><i class="fas fa-save"></i></button></td></tr>
+                                <tr><td>🔄 تحويل الصيغة</td><td><label class="toggle-switch"><input type="checkbox" checked onchange="toggleServiceVisibility('converter',this.checked)"><span class="toggle-slider"></span></label></td><td><input type="text" value="تحويل صيغة الفيديو" class="form-input svc-name-inp" data-svc="converter" style="padding:4px 8px;font-size:.82rem;max-width:200px"></td><td><button class="action-btn view" onclick="saveServiceNameInline(this)"><i class="fas fa-save"></i></button></td></tr>
+                                <tr><td>🎵 استخراج الصوت</td><td><label class="toggle-switch"><input type="checkbox" checked onchange="toggleServiceVisibility('audio-extractor',this.checked)"><span class="toggle-slider"></span></label></td><td><input type="text" value="استخراج الصوت" class="form-input svc-name-inp" data-svc="audio-extractor" style="padding:4px 8px;font-size:.82rem;max-width:200px"></td><td><button class="action-btn view" onclick="saveServiceNameInline(this)"><i class="fas fa-save"></i></button></td></tr>
+                                <tr><td>✂️ تقطيع الصوت</td><td><label class="toggle-switch"><input type="checkbox" checked onchange="toggleServiceVisibility('audio-trimmer',this.checked)"><span class="toggle-slider"></span></label></td><td><input type="text" value="تقطيع الصوت" class="form-input svc-name-inp" data-svc="audio-trimmer" style="padding:4px 8px;font-size:.82rem;max-width:200px"></td><td><button class="action-btn view" onclick="saveServiceNameInline(this)"><i class="fas fa-save"></i></button></td></tr>
+                                <tr><td>🔄 تحويل الصوت</td><td><label class="toggle-switch"><input type="checkbox" checked onchange="toggleServiceVisibility('audio-converter',this.checked)"><span class="toggle-slider"></span></label></td><td><input type="text" value="تحويل صيغة الصوت" class="form-input svc-name-inp" data-svc="audio-converter" style="padding:4px 8px;font-size:.82rem;max-width:200px"></td><td><button class="action-btn view" onclick="saveServiceNameInline(this)"><i class="fas fa-save"></i></button></td></tr>
+                                <tr><td>📦 ضغط الفيديو</td><td><label class="toggle-switch"><input type="checkbox" checked onchange="toggleServiceVisibility('compressor',this.checked)"><span class="toggle-slider"></span></label></td><td><input type="text" value="ضغط حجم الفيديو" class="form-input svc-name-inp" data-svc="compressor" style="padding:4px 8px;font-size:.82rem;max-width:200px"></td><td><button class="action-btn view" onclick="saveServiceNameInline(this)"><i class="fas fa-save"></i></button></td></tr>
+                                <tr><td>🔗 دمج الفيديو</td><td><label class="toggle-switch"><input type="checkbox" checked onchange="toggleServiceVisibility('video-merger',this.checked)"><span class="toggle-slider"></span></label></td><td><input type="text" value="دمج الفيديو" class="form-input svc-name-inp" data-svc="video-merger" style="padding:4px 8px;font-size:.82rem;max-width:200px"></td><td><button class="action-btn view" onclick="saveServiceNameInline(this)"><i class="fas fa-save"></i></button></td></tr>
+                                <tr><td>⚡ تغيير السرعة</td><td><label class="toggle-switch"><input type="checkbox" checked onchange="toggleServiceVisibility('speed-changer',this.checked)"><span class="toggle-slider"></span></label></td><td><input type="text" value="تغيير سرعة الفيديو" class="form-input svc-name-inp" data-svc="speed-changer" style="padding:4px 8px;font-size:.82rem;max-width:200px"></td><td><button class="action-btn view" onclick="saveServiceNameInline(this)"><i class="fas fa-save"></i></button></td></tr>
+                                <tr><td>🔄 تدوير الفيديو</td><td><label class="toggle-switch"><input type="checkbox" checked onchange="toggleServiceVisibility('video-rotator',this.checked)"><span class="toggle-slider"></span></label></td><td><input type="text" value="تدوير الفيديو" class="form-input svc-name-inp" data-svc="video-rotator" style="padding:4px 8px;font-size:.82rem;max-width:200px"></td><td><button class="action-btn view" onclick="saveServiceNameInline(this)"><i class="fas fa-save"></i></button></td></tr>
+                                <tr><td>🎨 مرشحات بصرية</td><td><label class="toggle-switch"><input type="checkbox" checked onchange="toggleServiceVisibility('video-filters',this.checked)"><span class="toggle-slider"></span></label></td><td><input type="text" value="مرشحات الفيديو" class="form-input svc-name-inp" data-svc="video-filters" style="padding:4px 8px;font-size:.82rem;max-width:200px"></td><td><button class="action-btn view" onclick="saveServiceNameInline(this)"><i class="fas fa-save"></i></button></td></tr>
+                                <tr><td>📝 إضافة نص</td><td><label class="toggle-switch"><input type="checkbox" checked onchange="toggleServiceVisibility('text-overlay',this.checked)"><span class="toggle-slider"></span></label></td><td><input type="text" value="إضافة نص على الفيديو" class="form-input svc-name-inp" data-svc="text-overlay" style="padding:4px 8px;font-size:.82rem;max-width:200px"></td><td><button class="action-btn view" onclick="saveServiceNameInline(this)"><i class="fas fa-save"></i></button></td></tr>
+                                <tr><td>🤖 محرر AI</td><td><label class="toggle-switch"><input type="checkbox" checked onchange="toggleServiceVisibility('ai-editor',this.checked)"><span class="toggle-slider"></span></label></td><td><input type="text" value="محرر الذكاء الاصطناعي" class="form-input svc-name-inp" data-svc="ai-editor" style="padding:4px 8px;font-size:.82rem;max-width:200px"></td><td><button class="action-btn view" onclick="saveServiceNameInline(this)"><i class="fas fa-save"></i></button></td></tr>
+                                <tr><td>🎭 إزالة خلفية</td><td><label class="toggle-switch"><input type="checkbox" checked onchange="toggleServiceVisibility('bg-remover',this.checked)"><span class="toggle-slider"></span></label></td><td><input type="text" value="إزالة خلفية الفيديو" class="form-input svc-name-inp" data-svc="bg-remover" style="padding:4px 8px;font-size:.82rem;max-width:200px"></td><td><button class="action-btn view" onclick="saveServiceNameInline(this)"><i class="fas fa-save"></i></button></td></tr>
+                                <tr><td>🌊 دمج فوق فيديو</td><td><label class="toggle-switch"><input type="checkbox" checked onchange="toggleServiceVisibility('video-overlay',this.checked)"><span class="toggle-slider"></span></label></td><td><input type="text" value="دمج فيديو فوق فيديو" class="form-input svc-name-inp" data-svc="video-overlay" style="padding:4px 8px;font-size:.82rem;max-width:200px"></td><td><button class="action-btn view" onclick="saveServiceNameInline(this)"><i class="fas fa-save"></i></button></td></tr>
+                                <tr><td>🎵 إضافة صوت على فيديو</td><td><label class="toggle-switch"><input type="checkbox" checked onchange="toggleServiceVisibility('audio-adder',this.checked)"><span class="toggle-slider"></span></label></td><td><input type="text" value="إضافة صوت على مقطع فيديو" class="form-input svc-name-inp" data-svc="audio-adder" style="padding:4px 8px;font-size:.82rem;max-width:200px"></td><td><button class="action-btn view" onclick="saveServiceNameInline(this)"><i class="fas fa-save"></i></button></td></tr>
+                                <tr><td>🎭 جعل الفيديو شفاف</td><td><label class="toggle-switch"><input type="checkbox" checked onchange="toggleServiceVisibility('transparent-video',this.checked)"><span class="toggle-slider"></span></label></td><td><input type="text" value="جعل الفيديو شفاف" class="form-input svc-name-inp" data-svc="transparent-video" style="padding:4px 8px;font-size:.82rem;max-width:200px"></td><td><button class="action-btn view" onclick="saveServiceNameInline(this)"><i class="fas fa-save"></i></button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- رسالة الموقع (إشعار عالمي) -->
+                <div class="control-section">
+                    <div class="control-section-header">
+                        <i class="fas fa-bullhorn"></i> إشعار عالمي للموقع
+                    </div>
+                    <div class="control-grid">
+                        <div class="form-group" style="grid-column:1/-1">
+                            <label>نص الإشعار (اتركه فارغاً للإخفاء)</label>
+                            <input type="text" id="sc_globalmsg" class="form-input" placeholder="مثال: 🎉 عرض خاص اليوم — خصم 15% على جميع الباقات!">
+                        </div>
+                        <div class="form-group">
+                            <label>لون الإشعار</label>
+                            <input type="color" id="sc_msgcolor" value="#ffd700" class="form-input" style="height:46px;padding:4px">
+                        </div>
+                    </div>
+                    <button class="rv-save-btn" onclick="applyGlobalMessage()"><i class="fas fa-paper-plane"></i> تطبيق الإشعار</button>
+                </div>
+            </div>
+
             <div id="statsTab" class="admin-tab-content">
-                <h3><i class="fas fa-chart-pie"></i> الإحصائيات العامة</h3>
+                <h3><i class="fas fa-chart-pie"></i> الإحصائيات المتقدمة</h3>
                 <div class="stats-cards">
                     <div class="stat-card-admin">
                         <i class="fas fa-shopping-cart"></i>
@@ -1045,6 +2111,28 @@
                         <i class="fas fa-envelope"></i>
                         <div class="stat-info"><h4>الرسائل المستلمة</h4><p id="totalMessages">0</p></div>
                     </div>
+                    <div class="stat-card-admin">
+                        <i class="fas fa-star"></i>
+                        <div class="stat-info"><h4>آراء العملاء</h4><p id="totalReviews">0</p></div>
+                    </div>
+                </div>
+
+                <!-- رسم بياني للباقات -->
+                <div class="chart-section">
+                    <h4><i class="fas fa-chart-bar"></i> توزيع المستخدمين حسب الباقة</h4>
+                    <div class="pkg-chart" id="pkgChart"></div>
+                </div>
+
+                <!-- رسم بياني للخدمات -->
+                <div class="chart-section">
+                    <h4><i class="fas fa-chart-line"></i> أكثر الخدمات استخداماً</h4>
+                    <div class="svc-chart" id="svcChart"></div>
+                </div>
+
+                <!-- آخر النشاطات -->
+                <div class="chart-section">
+                    <h4><i class="fas fa-history"></i> آخر النشاطات</h4>
+                    <div id="recentActivities" class="recent-activities"></div>
                 </div>
             </div>
         </div>
@@ -1128,5 +2216,9 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="video-quality-fix.js" defer></script>
+    <script src="services-upgrade.js" defer></script>
+    <script src="live-overlay-service.js" defer></script>
+    <script src="esports-tools.js" defer></script>
 </body>
 </html>
