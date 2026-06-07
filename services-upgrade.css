@@ -1,0 +1,311 @@
+/* ================================================================
+   services-upgrade.css — Eyad_Eyad12
+   ترقية كروت الخدمات + السلوموشن
+   أضف في <head>: <link rel="stylesheet" href="services-upgrade.css">
+================================================================ */
+
+/* ════════════════════════════════════════════
+   CARD BASE — إعادة تصميم كاملة
+════════════════════════════════════════════ */
+.service-card {
+    background: linear-gradient(145deg,
+        rgba(10,10,20,0.98) 0%,
+        rgba(6,6,14,0.99)  100%) !important;
+    border: 1px solid rgba(255,255,255,0.07) !important;
+    border-radius: 26px !important;
+    padding: 1.9rem 1.8rem !important;
+    transition: transform .45s cubic-bezier(.22,1,.36,1),
+                box-shadow .45s ease,
+                border-color .3s !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* Accent corner glow */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--sv-accent, rgba(220,20,60,.18)) 0%, transparent 70%);
+    pointer-events: none;
+    transition: opacity .4s;
+    opacity: .7;
+}
+
+/* Shimmer sweep on hover */
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -120%;
+    width: 55%; height: 100%;
+    background: linear-gradient(105deg, transparent, rgba(255,255,255,.045), transparent);
+    transform: skewX(-18deg);
+    transition: left .65s ease;
+    pointer-events: none;
+}
+.service-card:hover::after { left: 160%; }
+
+/* Hover state */
+.service-card:hover {
+    transform: translateY(-12px) scale(1.015) !important;
+    border-color: var(--sv-accent-border, rgba(220,20,60,.45)) !important;
+    box-shadow:
+        0 28px 60px rgba(0,0,0,.55),
+        0 0 0 1px var(--sv-accent-border, rgba(220,20,60,.18)),
+        0 0 35px var(--sv-accent-glow, rgba(220,20,60,.08)) !important;
+}
+.service-card:hover::before { opacity: 1; }
+
+/* ════ Premium card ════ */
+.premium-service {
+    background: linear-gradient(145deg,
+        rgba(14,11,6,0.99) 0%,
+        rgba(8,6,2,0.99) 100%) !important;
+}
+
+/* ════════════════════════════════════════════
+   ICON BOX — صندوق الأيقونة
+════════════════════════════════════════════ */
+.service-icon {
+    width: 70px !important;
+    height: 70px !important;
+    border-radius: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.75rem !important;
+    margin-bottom: 1.3rem !important;
+    background: var(--sv-icon-bg, rgba(220,20,60,.1)) !important;
+    border: 1px solid var(--sv-icon-border, rgba(220,20,60,.2)) !important;
+    box-shadow: 0 0 22px var(--sv-icon-glow, rgba(220,20,60,.1)) !important;
+    color: var(--sv-color, #dc143c) !important;
+    transition: transform .35s ease, box-shadow .35s ease !important;
+}
+.service-card:hover .service-icon {
+    transform: scale(1.08) rotate(-3deg) !important;
+    box-shadow: 0 0 35px var(--sv-icon-glow, rgba(220,20,60,.25)) !important;
+}
+
+/* ════ Title ════ */
+.service-card h3 {
+    font-size: 1.28rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -.3px !important;
+    margin-bottom: .7rem !important;
+    background: linear-gradient(135deg, #fff 30%, var(--sv-color, #dc143c)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* ════ Description ════ */
+.service-card p {
+    color: #889aaa !important;
+    font-size: .88rem !important;
+    line-height: 1.75 !important;
+    margin-bottom: 1rem !important;
+}
+
+/* ════ Feature chips ════ */
+.service-features {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: .5rem !important;
+    margin-bottom: 1rem !important;
+}
+.service-features span {
+    background: var(--sv-chip-bg, rgba(220,20,60,.1)) !important;
+    border: 1px solid var(--sv-chip-border, rgba(220,20,60,.22)) !important;
+    color: var(--sv-chip-color, #f09090) !important;
+    padding: 4px 12px !important;
+    border-radius: 50px !important;
+    font-size: .8rem !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+}
+.service-features span i { font-size: .72rem !important; }
+
+/* ════ Format list ════ */
+.format-list span {
+    background: rgba(255,255,255,.06) !important;
+    border: 1px solid rgba(255,255,255,.1) !important;
+    padding: 3px 11px !important;
+    border-radius: 8px !important;
+    font-size: .78rem !important;
+    color: #99aabb !important;
+    font-weight: 700 !important;
+}
+
+/* ════ Service badge (top-left) ════ */
+.service-badge {
+    top: 14px !important; left: 14px !important;
+    padding: 4px 12px !important;
+    border-radius: 50px !important;
+    font-size: .72rem !important;
+    font-weight: 800 !important;
+    letter-spacing: .3px !important;
+}
+.premium-badge {
+    background: linear-gradient(135deg, #ffd700, #ff9800) !important;
+    color: #000 !important;
+    box-shadow: 0 4px 12px rgba(255,215,0,.35) !important;
+}
+
+/* ════ Service new tag ════ */
+.service-new-tag {
+    position: absolute !important;
+    top: 14px !important; right: 14px !important;
+    background: linear-gradient(135deg, #00e5ff, #0077ff) !important;
+    color: #000 !important;
+    padding: 3px 10px !important;
+    border-radius: 10px !important;
+    font-size: .7rem !important;
+    font-weight: 800 !important;
+}
+.ai-tag {
+    background: linear-gradient(135deg, #a855f7, #7c3aed) !important;
+    color: #fff !important;
+}
+
+/* ════ CTA Button ════ */
+.service-btn {
+    background: transparent !important;
+    border: 1.5px solid var(--sv-accent-border, rgba(220,20,60,.4)) !important;
+    color: var(--sv-color, #dc143c) !important;
+    border-radius: 50px !important;
+    padding: .85rem !important;
+    font-weight: 700 !important;
+    font-size: .92rem !important;
+    transition: all .28s !important;
+}
+.service-btn:hover {
+    background: var(--sv-btn-hover, rgba(220,20,60,.15)) !important;
+    border-color: var(--sv-color, #dc143c) !important;
+    box-shadow: 0 0 18px var(--sv-icon-glow, rgba(220,20,60,.25)) !important;
+    transform: scale(1.02) !important;
+}
+.premium-btn {
+    background: linear-gradient(135deg, #ffd700, #ff9800) !important;
+    border: none !important;
+    color: #000 !important;
+    box-shadow: 0 6px 20px rgba(255,215,0,.25) !important;
+}
+.premium-btn:hover {
+    background: linear-gradient(135deg, #ff9800, #ffd700) !important;
+    box-shadow: 0 8px 28px rgba(255,215,0,.4) !important;
+    transform: scale(1.03) translateY(-1px) !important;
+}
+.ai-btn {
+    background: linear-gradient(135deg, #a855f7, #7c3aed) !important;
+    border: none !important;
+    color: #fff !important;
+    box-shadow: 0 6px 20px rgba(168,85,247,.3) !important;
+}
+
+/* ════ AI card special ════ */
+.ai-card {
+    border-color: rgba(168,85,247,.25) !important;
+}
+.ai-card::before {
+    background: radial-gradient(circle, rgba(168,85,247,.2) 0%, transparent 65%) !important;
+    opacity: .8 !important;
+}
+.ai-icon { color: #a855f7 !important; box-shadow: 0 0 25px rgba(168,85,247,.25) !important; }
+
+/* ════ Card entrance animation ════ */
+@keyframes cardIn {
+    from { opacity:0; transform:translateY(22px) scale(.97); }
+    to   { opacity:1; transform:translateY(0)    scale(1); }
+}
+.service-card.sv-animated {
+    animation: cardIn .55s cubic-bezier(.22,1,.36,1) both;
+}
+
+/* ════════════════════════════════════════════
+   SLOW MOTION PANEL — داخل المودال
+════════════════════════════════════════════ */
+.slomo-panel {
+    background: linear-gradient(135deg, rgba(0,8,25,.95), rgba(0,5,18,.95));
+    border: 1.5px solid rgba(0,229,255,.25);
+    border-radius: 16px;
+    padding: 1.1rem 1.2rem;
+    margin: .8rem 0;
+}
+.slomo-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #00e5ff;
+    font-size: .82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+    margin-bottom: .9rem;
+}
+.slomo-head i { font-size: .85rem; }
+.slomo-head .slomo-badge {
+    background: rgba(0,229,255,.12);
+    border: 1px solid rgba(0,229,255,.28);
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-size: .7rem;
+    color: #00e5ff;
+    margin-right: auto;
+}
+
+.slomo-btns {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: .5rem;
+}
+@media(max-width:500px){ .slomo-btns{ grid-template-columns:repeat(2,1fr); } }
+
+.slomo-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: .65rem .4rem;
+    background: rgba(255,255,255,.04);
+    border: 1.5px solid rgba(255,255,255,.1);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all .22s;
+    font-family: inherit;
+}
+.slomo-btn:hover {
+    background: rgba(0,229,255,.1);
+    border-color: rgba(0,229,255,.35);
+}
+.slomo-btn.active {
+    background: linear-gradient(135deg, rgba(0,229,255,.2), rgba(0,119,255,.15));
+    border-color: #00e5ff;
+    box-shadow: 0 0 16px rgba(0,229,255,.2);
+}
+.slomo-icon { font-size: 1.3rem; line-height: 1; }
+.slomo-val  { font-size: .88rem; font-weight: 800; color: #fff; }
+.slomo-lbl  { font-size: .65rem; color: #667788; letter-spacing: .3px; }
+.slomo-btn.active .slomo-lbl { color: #00e5ff; }
+
+.slomo-status-bar {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-top: .7rem;
+    padding: .45rem .7rem;
+    background: rgba(0,229,255,.06);
+    border-radius: 10px;
+    font-size: .78rem;
+    color: #00e5ff;
+    font-weight: 700;
+}
+.slomo-status-bar .sm-warn {
+    margin-right: auto;
+    color: #556677;
+    font-size: .7rem;
+    font-weight: 400;
+}
