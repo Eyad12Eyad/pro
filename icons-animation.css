@@ -1,0 +1,301 @@
+/* ================================================================
+   icons-animation.css — Eyad_Eyad12
+   تحريك جميع الأيقونات في الموقع بشكل احترافي وجذاب
+   أضف في <head> بعد باقي ملفات CSS:
+   <link rel="stylesheet" href="icons-animation.css">
+================================================================ */
+
+/* ════ إعداد عام: كل أيقونة FontAwesome قابلة للتحريك ════ */
+i[class*="fa-"] {
+    display: inline-block;
+    transition: transform .35s cubic-bezier(.34,1.56,.64,1),
+                color .3s ease,
+                filter .3s ease,
+                text-shadow .3s ease;
+    transform-origin: center;
+    will-change: transform;
+}
+
+/* ════════════════════════════════════════════
+   1) حركة "نبض توهج" خفيفة مستمرة للأيقونات البارزة
+   ════════════════════════════════════════════ */
+@keyframes iconGlowPulse {
+    0%, 100% { filter: drop-shadow(0 0 2px currentColor); transform: scale(1); }
+    50%      { filter: drop-shadow(0 0 10px currentColor); transform: scale(1.06); }
+}
+.service-icon i,
+.service-icon,
+.stat-card > i,
+.pricing-icon,
+.info-box > i,
+.contact-item > i,
+.card-icon,
+.esp-icon-box i,
+.section-title i {
+    animation: iconGlowPulse 3.2s ease-in-out infinite;
+}
+
+/* تفاوت التوقيت بين الأيقونات المتجاورة حتى لا تتزامن كلها */
+.services-grid .service-card:nth-child(3n+1) .service-icon i { animation-delay: 0s; }
+.services-grid .service-card:nth-child(3n+2) .service-icon i { animation-delay: .5s; }
+.services-grid .service-card:nth-child(3n+3) .service-icon i { animation-delay: 1s; }
+.stats-grid .stat-card:nth-child(2) > i { animation-delay: .4s; }
+.stats-grid .stat-card:nth-child(3) > i { animation-delay: .8s; }
+
+/* ════════════════════════════════════════════
+   2) دوران ناعم للأيقونات الدائرية / الدلالية بالدوران
+   ════════════════════════════════════════════ */
+@keyframes iconSpinSlow { to { transform: rotate(360deg); } }
+.fa-cog, .fa-gear, .fa-sync, .fa-sync-alt, .fa-redo, .fa-undo,
+.fa-spinner, .fa-circle-notch, .fa-crosshairs, .fa-compass {
+    animation: iconSpinSlow 3.5s linear infinite;
+}
+.fa-cog.fa-spin, .fa-spinner.fa-spin, .fa-circle-notch.fa-spin {
+    animation-duration: .9s; /* حالات التحميل تبقى سريعة */
+}
+
+/* ════════════════════════════════════════════
+   3) اهتزاز/نبض لأيقونات التنبيه والتحذير والقلب
+   ════════════════════════════════════════════ */
+@keyframes iconHeartbeat {
+    0%, 100% { transform: scale(1); }
+    15%      { transform: scale(1.25); }
+    30%      { transform: scale(1); }
+    45%      { transform: scale(1.18); }
+    60%      { transform: scale(1); }
+}
+.fa-heart, .heart, .donation-heart-anim, .fa-fire {
+    animation: iconHeartbeat 1.6s ease-in-out infinite;
+    display: inline-block;
+}
+
+@keyframes iconShake {
+    0%, 100% { transform: rotate(0); }
+    20%      { transform: rotate(-10deg); }
+    40%      { transform: rotate(9deg); }
+    60%      { transform: rotate(-6deg); }
+    80%      { transform: rotate(4deg); }
+}
+.fa-bell:not(#bellBtn i) {
+    animation: iconShake 2.4s ease-in-out infinite;
+    transform-origin: top center;
+}
+#bellBtn i { transition: transform .3s ease; }
+#bellBtn:hover i { animation: iconShake 1s ease-in-out infinite; }
+
+/* ════════════════════════════════════════════
+   4) تعويم ناعم (Floating) لأيقونات كبيرة / زخرفية
+   ════════════════════════════════════════════ */
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+}
+.qr-placeholder i,
+.upload-area i,
+.merger-drop-zone i,
+.esp-hero-badge i,
+.badge-popup-icon,
+.gw-icon,
+.donation-heart-anim,
+.rose-icon,
+.processing-spinner:not(.fa-spin) {
+    animation: iconFloat 2.6s ease-in-out infinite;
+}
+
+/* ════════════════════════════════════════════
+   5) تفاعل الهوفر — كل أيقونة تكبر وتتوهج عند المرور
+   ════════════════════════════════════════════ */
+.nav-link:hover i,
+.service-btn:hover i,
+.pricing-btn:hover i,
+.sub-btn:hover i,
+.admin-quick-btn:hover i,
+.adm-nav-item:hover i,
+.esp-btn:hover i,
+.website-card:hover .card-icon,
+.contact-item:hover i,
+.export-btn:hover i,
+.add-user-btn:hover i,
+button:hover > i[class*="fa-"] {
+    transform: scale(1.22) rotate(-6deg);
+    filter: drop-shadow(0 0 8px currentColor);
+}
+
+/* أزرار الحذف تهتز عند الهوفر تحذيراً */
+.action-btn.delete:hover i,
+.merger-del:hover i,
+.scr-del:hover i,
+.esp-remove-btn:hover,
+.delete-msg-btn:hover i,
+button[onclick*="delete"]:hover i,
+button[onclick*="Delete"]:hover i {
+    animation: iconShake .5s ease-in-out;
+}
+
+/* أيقونات "تحميل/رفع" تقفز عند الهوفر */
+.download-btn:hover i,
+.upload-pick-btn:hover i,
+.file-upload-label:hover i,
+.rv-save-btn:hover i,
+.esp-dl-btn:hover i,
+.scr-dl-btn:hover i {
+    animation: iconBounce .5s ease;
+}
+@keyframes iconBounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    30%      { transform: translateY(-5px) scale(1.15); }
+    60%      { transform: translateY(1px) scale(.95); }
+}
+
+/* ════════════════════════════════════════════
+   6) أيقونات القسم الرئيسي (section-title) بريق متحرك
+   ════════════════════════════════════════════ */
+@keyframes iconShimmer {
+    0%   { filter: drop-shadow(0 0 2px currentColor) brightness(1); }
+    50%  { filter: drop-shadow(0 0 14px currentColor) brightness(1.35); }
+    100% { filter: drop-shadow(0 0 2px currentColor) brightness(1); }
+}
+.section-title i,
+.adm-page-title i,
+.control-section-header i,
+.psm-title i,
+.modal-title i {
+    animation: iconShimmer 2.4s ease-in-out infinite;
+}
+
+/* ════════════════════════════════════════════
+   7) أيقونات الحالة (نجاح/خطأ/تحذير) لها دخول ديناميكي
+   ════════════════════════════════════════════ */
+@keyframes iconPopIn {
+    0%   { transform: scale(0) rotate(-180deg); opacity: 0; }
+    60%  { transform: scale(1.25) rotate(10deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0); }
+}
+.download-ready > i,
+.success-animation i,
+.fa-check-circle,
+.fa-times-circle,
+.fa-exclamation-triangle {
+    animation: iconPopIn .55s cubic-bezier(.34,1.56,.64,1);
+}
+
+/* ════════════════════════════════════════════
+   8) أيقونات إيسبورت / الألعاب — نبض نيون مستمر
+   ════════════════════════════════════════════ */
+@keyframes iconNeonPulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 4px currentColor) drop-shadow(0 0 10px currentColor);
+    }
+    50% {
+        filter: drop-shadow(0 0 10px currentColor) drop-shadow(0 0 22px currentColor);
+    }
+}
+.esp-hero-title i,
+.fa-trophy,
+.fa-crown,
+.fa-gem,
+.fa-gamepad,
+.service-badge.esports-badge i,
+.esports-tag,
+.alert-badge-tag i {
+    animation: iconNeonPulse 2.2s ease-in-out infinite;
+}
+
+/* ════════════════════════════════════════════
+   9) أيقونة الترس/الأدوات تدور عند الهوفر على البطاقة كاملة
+   ════════════════════════════════════════════ */
+.service-card:hover .service-icon i,
+.esp-card:hover .esp-icon-box i,
+.adm-quick-btn:hover i.fa-cog,
+.control-section:hover .control-section-header i {
+    animation: iconSpinSlow 1.2s linear infinite;
+}
+
+/* ════════════════════════════════════════════
+   10) شعار الموقع (logo) دوران بطيء دائم + توهج
+   ════════════════════════════════════════════ */
+.logo i {
+    animation: iconSpinSlow 9s linear infinite,
+               iconGlowPulse 3s ease-in-out infinite;
+}
+
+/* ════════════════════════════════════════════
+   11) أيقونات القوائم المنسدلة / الأسهم تدور عند الفتح
+   ════════════════════════════════════════════ */
+.gw-arrow, .toggle-slider, .esp-card-top i.fa-chevron-down {
+    transition: transform .35s cubic-bezier(.4,0,.2,1);
+}
+
+/* ════════════════════════════════════════════
+   12) أيقونات التحميل الحقيقية (fa-spin) — دائمًا سريعة وسلسة
+   ════════════════════════════════════════════ */
+.fa-spin {
+    animation: fa-spin 1s linear infinite !important;
+}
+@keyframes fa-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* ════════════════════════════════════════════
+   13) توهج ألوان متدرج لأيقونات النجوم والتقييم
+   ════════════════════════════════════════════ */
+@keyframes starTwinkle {
+    0%, 100% { filter: drop-shadow(0 0 2px #ffd700); transform: scale(1); }
+    50%      { filter: drop-shadow(0 0 10px #ffd700); transform: scale(1.15); }
+}
+.rv-star.filled, .sp-star.active, .fa-star:not(.rv-star):not(.sp-star) {
+    animation: starTwinkle 1.8s ease-in-out infinite;
+}
+.rv-star.filled:nth-child(1) { animation-delay: 0s; }
+.rv-star.filled:nth-child(2) { animation-delay: .1s; }
+.rv-star.filled:nth-child(3) { animation-delay: .2s; }
+.rv-star.filled:nth-child(4) { animation-delay: .3s; }
+.rv-star.filled:nth-child(5) { animation-delay: .4s; }
+
+/* ════════════════════════════════════════════
+   14) دخول متتابع (Stagger) للأيقونات عند ظهور البطاقات
+   يُفعَّل تلقائياً عبر JS بإضافة كلاس icon-in-view
+   ════════════════════════════════════════════ */
+.icon-stagger-target {
+    opacity: 0;
+    transform: scale(.4) rotate(-25deg);
+    transition: opacity .5s cubic-bezier(.34,1.56,.64,1),
+                transform .5s cubic-bezier(.34,1.56,.64,1);
+}
+.icon-stagger-target.icon-in-view {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+/* ════════════════════════════════════════════
+   15) أيقونات الشحن / الدفع (بطاقة) نبض ذهبي مميز
+   ════════════════════════════════════════════ */
+@keyframes goldPulse {
+    0%, 100% { filter: drop-shadow(0 0 3px #ffd700); }
+    50%      { filter: drop-shadow(0 0 14px #ffd700) drop-shadow(0 0 22px #ff9800); }
+}
+.pricing-icon, .fa-crown, .cpb-header i, .qr-placeholder i {
+    animation: goldPulse 2.6s ease-in-out infinite;
+}
+
+/* ════════════════════════════════════════════
+   16) احترام تفضيل المستخدم لتقليل الحركة
+   ════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+    i[class*="fa-"],
+    .service-icon i, .stat-card > i, .pricing-icon, .info-box > i,
+    .contact-item > i, .card-icon, .fa-heart, .heart, .fa-bell,
+    .logo i, .rose-icon, .fa-star, .rv-star.filled, .sp-star.active {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ════════════════════════════════════════════
+   17) تحسين الأداء: منع الحركة أثناء السحب/التمرير السريع
+   ════════════════════════════════════════════ */
+i[class*="fa-"] {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}

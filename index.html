@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="esports-styles.css">
+    <link rel="stylesheet" href="admin-upgrade.css">
     <link rel="stylesheet" href="services-upgrade.css">
+    <link rel="stylesheet" href="icons-animation.css">
+    <link rel="stylesheet" href="site-polish.css">
     <!-- FFmpeg.wasm للمعالجة الحقيقية للملفات -->
     <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.11.6/dist/ffmpeg.min.js"></script>
 </head>
@@ -35,6 +38,7 @@
                 <li><a href="#websites" class="nav-link"><i class="fas fa-globe"></i> مواقعي</a></li>
                 <li><a href="#charging" class="nav-link"><i class="fas fa-shopping-cart"></i> الشحن</a></li>
                 <li><a href="#services" class="nav-link"><i class="fas fa-tools"></i> خدمات</a></li>
+                <li><a href="#paid-services" class="nav-link"><i class="fas fa-gem"></i> مدفوعة</a></li>
                 <li><a href="#alerts" class="nav-link"><i class="fas fa-gamepad"></i> اليرتات</a></li>
                 <li><a href="#reviews" class="nav-link"><i class="fas fa-star"></i> آراء العملاء</a></li>
                 <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> تواصل</a></li>
@@ -286,643 +290,269 @@
     <!-- قسم الخدمات -->
     <section id="services" class="section">
         <div class="container">
-            <h2 class="section-title">
-                <i class="fas fa-tools"></i>
-                الخدمات الاحترافية
-            </h2>
-
-            <div class="services-notice premium-notice">
-                <i class="fas fa-crown"></i>
-                <div>
-                    <h3>خدمات مدفوعة حصرياً</h3>
-                    <p>جميع الخدمات تتطلب اشتراك مدفوع. للحصول على حساب، يرجى <a href="#contact" onclick="scrollToSection('contact')">التواصل معنا</a></p>
-                    <p>عند الاشتراك تواصل معنا ضروري ليتم تزويدك بالمعلومات المطلوبة</p>
-                </div>
-            </div>
-
-            <div class="pricing-table">
-                <h3><i class="fas fa-tags"></i> باقات الاشتراك</h3>
-                <div class="subscription-grid">
-                    <div class="subscription-card">
-                        <div class="sub-header">
-                            <i class="fas fa-calendar-day"></i>
-                            <h4>يومي</h4>
-                        </div>
-                        <div class="sub-price">5,000 IQD</div>
-                        <ul class="sub-features">
-                            <li><i class="fas fa-check"></i> جميع الخدمات</li>
-                            <li><i class="fas fa-check"></i> 24 ساعة</li>
-                            <li><i class="fas fa-check"></i> دعم فني</li>
-                        </ul>
-                        <button class="sub-btn" onclick="purchaseSubscription('يومي', '5,000')">اشترك الآن</button>
-                    </div>
-
-                    <div class="subscription-card featured">
-                        <div class="sub-badge">الأكثر شعبية</div>
-                        <div class="sub-header">
-                            <i class="fas fa-calendar-week"></i>
-                            <h4>أسبوعي</h4>
-                        </div>
-                        <div class="sub-price">25,000 IQD</div>
-                        <ul class="sub-features">
-                            <li><i class="fas fa-check"></i> جميع الخدمات</li>
-                            <li><i class="fas fa-check"></i> 7 أيام</li>
-                            <li><i class="fas fa-check"></i> دعم VIP</li>
-                            <li><i class="fas fa-gift"></i> توفير 30%</li>
-                        </ul>
-                        <button class="sub-btn" onclick="purchaseSubscription('أسبوعي', '25,000')">اشترك الآن</button>
-                    </div>
-
-                    <div class="subscription-card premium">
-                        <div class="sub-badge gold">الأفضل قيمة</div>
-                        <div class="sub-header">
-                            <i class="fas fa-calendar-alt"></i>
-                            <h4>شهري</h4>
-                        </div>
-                        <div class="sub-price">80,000 IQD</div>
-                        <ul class="sub-features">
-                            <li><i class="fas fa-check"></i> جميع الخدمات</li>
-                            <li><i class="fas fa-check"></i> 30 يوم</li>
-                            <li><i class="fas fa-check"></i> دعم VIP مخصص</li>
-                            <li><i class="fas fa-gift"></i> توفير 45%</li>
-                            <li><i class="fas fa-star"></i> أولوية</li>
-                        </ul>
-                        <button class="sub-btn" onclick="purchaseSubscription('شهري', '80,000')">اشترك الآن</button>
-                    </div>
-                </div>
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-tools"></i> 🆓 الخدمات المجانية</h2>
+                <p class="section-subtitle">جميع الخدمات مجانية ومفتوحة للجميع بدون تسجيل</p>
             </div>
 
             <div class="services-grid">
-                <!-- ✂️ تقطيع الفيديو (جديد بدلاً من التنزيل) -->
-                <div class="service-card premium-service" onclick="checkServiceAccess('video-trimmer', 'تقطيع الفيديو')">
-                    <div class="service-badge premium-badge">
-                        <i class="fas fa-crown"></i> مدفوع
-                    </div>
-                    <div class="service-icon">
-                        <i class="fas fa-cut"></i>
-                    </div>
+                <!-- ═══ فيديو وصوت ═══ -->
+                <div style="grid-column:1/-1;margin:.5rem 0;padding-bottom:.5rem;border-bottom:1px solid rgba(255,255,255,.06)">
+                    <span style="color:#dc143c;font-size:.85rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px"><i class="fas fa-video"></i> خدمات الفيديو والصوت</span>
+                </div>
+                
+                <div class="service-card" onclick="openService('video-trimmer','تقطيع الفيديو')">
+                    
+                    <div class="service-icon" style="color:#dc143c"><i class="fas fa-cut"></i></div>
                     <h3>تقطيع الفيديو</h3>
-                    <p>قص الفيديو بدقة عالية — اختر من ثانية إلى ثانية أو حدد مقاطع متعددة</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> من ثانية لثانية</span>
-                        <span><i class="fas fa-check"></i> مقاطع متعددة</span>
-                        <span><i class="fas fa-check"></i> جودة أصلية</span>
-                    </div>
-                    <button class="service-btn premium-btn">
-                        <i class="fas fa-lock"></i> تسجيل دخول
+                    <p>قطّع فيديوك بدقة متناهية — اختر البداية والنهاية بسهولة تامة</p>
+                    <button class="service-btn" style="background:#dc143c18;border:1.5px solid #dc143c44;color:#dc143c;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
                     </button>
                 </div>
-
-                <!-- 🔄 تحويل صيغة الفيديو -->
-                <div class="service-card premium-service" onclick="checkServiceAccess('converter', 'تحويل صيغة الفيديو')">
-                    <div class="service-badge premium-badge">
-                        <i class="fas fa-crown"></i> مدفوع
-                    </div>
-                    <div class="service-icon">
-                        <i class="fas fa-exchange-alt"></i>
-                    </div>
-                    <h3>تحويل صيغ الفيديو</h3>
-                    <p>تحويل الفيديو إلى أي صيغة بجودة عالية ومعالجة حقيقية</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> 50+ صيغة</span>
-                        <span><i class="fas fa-check"></i> جودة عالية</span>
-                        <span><i class="fas fa-check"></i> سريع</span>
-                    </div>
-                    <div class="format-list">
-                        <span>MP4</span>
-                        <span>AVI</span>
-                        <span>MOV</span>
-                        <span>MKV</span>
-                    </div>
-                    <button class="service-btn premium-btn">
-                        <i class="fas fa-lock"></i> تسجيل دخول
+                <div class="service-card" onclick="openService('converter','تحويل الصيغة')">
+                    
+                    <div class="service-icon" style="color:#0077ff"><i class="fas fa-sync-alt"></i></div>
+                    <h3>تحويل الصيغة</h3>
+                    <p>حوّل فيديوك لأي صيغة تريد — MP4, WebM, AVI, MOV وأكثر</p>
+                    <button class="service-btn" style="background:#0077ff18;border:1.5px solid #0077ff44;color:#0077ff;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
                     </button>
                 </div>
-
-                <!-- 🎵 استخراج الصوت -->
-                <div class="service-card premium-service" onclick="checkServiceAccess('audio-extractor', 'استخراج الصوت')">
-                    <div class="service-badge premium-badge">
-                        <i class="fas fa-crown"></i> مدفوع
-                    </div>
-                    <div class="service-icon">
-                        <i class="fas fa-volume-up"></i>
-                    </div>
-                    <h3>استخراج الصوت</h3>
-                    <p>استخراج الصوت من الفيديو بأعلى جودة ومعالجة فعلية بـ FFmpeg</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> جودة استوديو</span>
-                        <span><i class="fas fa-check"></i> متعدد الصيغ</span>
-                    </div>
-                    <div class="format-list">
-                        <span>MP3</span>
-                        <span>WAV</span>
-                        <span>AAC</span>
-                    </div>
-                    <button class="service-btn premium-btn">
-                        <i class="fas fa-lock"></i> تسجيل دخول
+                <div class="service-card" onclick="openService('compressor','ضغط الفيديو')">
+                    
+                    <div class="service-icon" style="color:#059669"><i class="fas fa-compress"></i></div>
+                    <h3>ضغط الفيديو</h3>
+                    <p>قلّل حجم الفيديو مع الحفاظ على الجودة — 4 مستويات ضغط</p>
+                    <button class="service-btn" style="background:#05966918;border:1.5px solid #05966944;color:#059669;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
                     </button>
                 </div>
-
-                <!-- ✂️ تقطيع الصوت (جديد بدلاً من رفع الجودة) -->
-                <div class="service-card premium-service" onclick="checkServiceAccess('audio-trimmer', 'تقطيع الصوت')">
-                    <div class="service-badge premium-badge">
-                        <i class="fas fa-crown"></i> مدفوع
-                    </div>
-                    <div class="service-icon">
-                        <i class="fas fa-scissors"></i>
-                    </div>
-                    <h3>تقطيع الصوت</h3>
-                    <p>قص الملفات الصوتية بدقة — من ثانية لثانية أو مقاطع متعددة</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> من ثانية لثانية</span>
-                        <span><i class="fas fa-check"></i> مقاطع متعددة</span>
-                        <span><i class="fas fa-check"></i> جودة أصلية</span>
-                    </div>
-                    <button class="service-btn premium-btn">
-                        <i class="fas fa-lock"></i> تسجيل دخول
+                <div class="service-card" onclick="openService('video-merger','دمج فيديوهات')">
+                    
+                    <div class="service-icon" style="color:#7c3aed"><i class="fas fa-object-group"></i></div>
+                    <h3>دمج فيديوهات</h3>
+                    <p>ادمج عدة فيديوهات في ملف واحد بسلاسة كاملة</p>
+                    <button class="service-btn" style="background:#7c3aed18;border:1.5px solid #7c3aed44;color:#7c3aed;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
                     </button>
                 </div>
-
-                <!-- 🎵 تحويل صيغة الصوت -->
-                <div class="service-card premium-service" onclick="checkServiceAccess('audio-converter', 'تحويل صيغة الصوت')">
-                    <div class="service-badge premium-badge">
-                        <i class="fas fa-crown"></i> مدفوع
-                    </div>
-                    <div class="service-icon">
-                        <i class="fas fa-music"></i>
-                    </div>
-                    <h3>تحويل صيغ الصوت</h3>
-                    <p>تحويل الملفات الصوتية بين جميع الصيغ بمعالجة FFmpeg فعلية</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> 30+ صيغة</span>
-                        <span><i class="fas fa-check"></i> جودة عالية</span>
-                    </div>
-                    <button class="service-btn premium-btn">
-                        <i class="fas fa-lock"></i> تسجيل دخول
+                <div class="service-card" onclick="openService('speed-changer','تغيير السرعة')">
+                    
+                    <div class="service-icon" style="color:#d97706"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3>تغيير السرعة</h3>
+                    <p>سرّع أو بطّئ فيديوك — من 0.25x حتى 4x</p>
+                    <button class="service-btn" style="background:#d9770618;border:1.5px solid #d9770644;color:#d97706;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
                     </button>
                 </div>
-
-                <!-- 📦 ضغط الفيديو -->
-                <div class="service-card premium-service" onclick="checkServiceAccess('compressor', 'ضغط حجم الفيديو')">
-                    <div class="service-badge premium-badge">
-                        <i class="fas fa-crown"></i> مدفوع
-                    </div>
-                    <div class="service-icon">
-                        <i class="fas fa-compress"></i>
-                    </div>
-                    <h3>ضغط حجم الفيديو</h3>
-                    <p>تقليل حجم الفيديو بشكل حقيقي مع التحكم بجودة الضغط</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> ضغط حقيقي</span>
-                        <span><i class="fas fa-check"></i> تحكم بالجودة</span>
-                    </div>
-                    <button class="service-btn premium-btn">
-                        <i class="fas fa-lock"></i> تسجيل دخول
-                    </button>
-                </div>
-                <!-- 🔗 دمج الفيديو -->
-                <div class="service-card premium-service new-badge-card" onclick="checkServiceAccess('video-merger', 'دمج الفيديو')">
-                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
-                    <div class="service-new-tag">جديد ✨</div>
-                    <div class="service-icon"><i class="fas fa-object-group"></i></div>
-                    <h3>دمج الفيديو</h3>
-                    <p>ادمج عدة مقاطع فيديو في ملف واحد بالترتيب الذي تريده</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> ملفات متعددة</span>
-                        <span><i class="fas fa-check"></i> ترتيب حر</span>
-                        <span><i class="fas fa-check"></i> جودة أصلية</span>
-                    </div>
-                    <button class="service-btn premium-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
-                </div>
-
-                <!-- ⚡ تغيير سرعة الفيديو -->
-                <div class="service-card premium-service new-badge-card" onclick="checkServiceAccess('speed-changer', 'تغيير سرعة الفيديو')">
-                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
-                    <div class="service-new-tag">جديد ✨</div>
-                    <div class="service-icon"><i class="fas fa-tachometer-alt"></i></div>
-                    <h3>تغيير سرعة الفيديو</h3>
-                    <p>سرّع أو أبطئ الفيديو من 0.25x حتى 4x مع الحفاظ على الصوت</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> 0.25x → 4x</span>
-                        <span><i class="fas fa-check"></i> مع الصوت</span>
-                        <span><i class="fas fa-check"></i> سلس</span>
-                    </div>
-                    <button class="service-btn premium-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
-                </div>
-
-                <!-- 🔄 تدوير الفيديو -->
-                <div class="service-card premium-service new-badge-card" onclick="checkServiceAccess('video-rotator', 'تدوير الفيديو')">
-                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
-                    <div class="service-new-tag">جديد ✨</div>
-                    <div class="service-icon"><i class="fas fa-sync-alt"></i></div>
+                <div class="service-card" onclick="openService('video-rotator','تدوير الفيديو')">
+                    
+                    <div class="service-icon" style="color:#0891b2"><i class="fas fa-redo"></i></div>
                     <h3>تدوير الفيديو</h3>
-                    <p>صحّح اتجاه الفيديو — دوران 90°، 180°، أو عكس أفقي/رأسي</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> 90° / 180°</span>
-                        <span><i class="fas fa-check"></i> عكس أفقي</span>
-                        <span><i class="fas fa-check"></i> معاينة فورية</span>
-                    </div>
-                    <button class="service-btn premium-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
+                    <p>دوّر فيديوك 90° أو 180° أو 270° بضغطة واحدة</p>
+                    <button class="service-btn" style="background:#0891b218;border:1.5px solid #0891b244;color:#0891b2;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
+                </div>
+                <div class="service-card" onclick="openService('video-filters','فلاتر الفيديو')">
+                    
+                    <div class="service-icon" style="color:#be185d"><i class="fas fa-magic"></i></div>
+                    <h3>فلاتر الفيديو</h3>
+                    <p>أضف فلاتر إبداعية — أبيض وأسود، سطوع، تباين وأكثر</p>
+                    <button class="service-btn" style="background:#be185d18;border:1.5px solid #be185d44;color:#be185d;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
+                </div>
+                <div class="service-card" onclick="openService('text-overlay','إضافة نص')">
+                    
+                    <div class="service-icon" style="color:#0d9488"><i class="fas fa-font"></i></div>
+                    <h3>إضافة نص</h3>
+                    <p>اكتب نصاً على فيديوك بخطوط وألوان مخصصة</p>
+                    <button class="service-btn" style="background:#0d948818;border:1.5px solid #0d948844;color:#0d9488;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
+                </div>
+                <div class="service-card" onclick="openService('audio-extractor','استخراج الصوت')">
+                    
+                    <div class="service-icon" style="color:#7c3aed"><i class="fas fa-music"></i></div>
+                    <h3>استخراج الصوت</h3>
+                    <p>استخرج الصوت من أي فيديو بصيغة MP3 أو WAV</p>
+                    <button class="service-btn" style="background:#7c3aed18;border:1.5px solid #7c3aed44;color:#7c3aed;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
+                </div>
+                <div class="service-card" onclick="openService('audio-trimmer','تقطيع الصوت')">
+                    
+                    <div class="service-icon" style="color:#dc2626"><i class="fas fa-cut"></i></div>
+                    <h3>تقطيع الصوت</h3>
+                    <p>قطّع ملفات الصوت بدقة عالية</p>
+                    <button class="service-btn" style="background:#dc262618;border:1.5px solid #dc262644;color:#dc2626;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
+                </div>
+                <div class="service-card" onclick="openService('audio-converter','تحويل الصوت')">
+                    
+                    <div class="service-icon" style="color:#2563eb"><i class="fas fa-exchange-alt"></i></div>
+                    <h3>تحويل الصوت</h3>
+                    <p>حوّل بين جميع صيغ الصوت</p>
+                    <button class="service-btn" style="background:#2563eb18;border:1.5px solid #2563eb44;color:#2563eb;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
+                </div>
+                <div class="service-card" onclick="openService('audio-adder','إضافة موسيقى')">
+                    
+                    <div class="service-icon" style="color:#059669"><i class="fas fa-headphones"></i></div>
+                    <h3>إضافة موسيقى</h3>
+                    <p>أضف موسيقى أو صوتاً لفيديوك</p>
+                    <button class="service-btn" style="background:#05966918;border:1.5px solid #05966944;color:#059669;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
                 </div>
 
-                <!-- 🎨 مرشحات بصرية -->
-                <div class="service-card premium-service new-badge-card" onclick="checkServiceAccess('video-filters', 'مرشحات الفيديو')">
-                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
-                    <div class="service-new-tag">جديد ✨</div>
-                    <div class="service-icon"><i class="fas fa-palette"></i></div>
-                    <h3>مرشحات بصرية</h3>
-                    <p>طبّق مرشحات ألوان احترافية — دافئ، أبيض وأسود، قديم، حيوي وأكثر</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> 8+ مرشحات</span>
-                        <span><i class="fas fa-check"></i> معاينة فورية</span>
-                        <span><i class="fas fa-check"></i> تحكم بالشدة</span>
-                    </div>
-                    <button class="service-btn premium-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
+                <!-- ═══ إيسبورت ═══ -->
+                <div style="grid-column:1/-1;margin:1.5rem 0 .5rem;padding-top:.8rem;border-top:1px solid rgba(255,255,255,.06)">
+                    <span style="color:#ffd700;font-size:.85rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px"><i class="fas fa-gamepad"></i> أدوات الإيسبورت</span>
+                </div>
+                
+                <div class="service-card" onclick="openService('lb-creator','منشئ جدول الترتيب')">
+                    <div class="service-badge esports-badge"><i class="fas fa-gamepad"></i> إيسبورت</div>
+                    <div class="service-icon" style="color:#ffd700"><i class="fas fa-trophy"></i></div>
+                    <h3>منشئ جدول الترتيب</h3>
+                    <p>أنشئ جدول ترتيب احترافي للبطولات</p>
+                    <button class="service-btn" style="background:#ffd70018;border:1.5px solid #ffd70044;color:#ffd700;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
+                </div>
+                <div class="service-card" onclick="openService('pubg-map','خريطة PUBG التكتيكية')">
+                    <div class="service-badge esports-badge"><i class="fas fa-gamepad"></i> إيسبورت</div>
+                    <div class="service-icon" style="color:#22c55e"><i class="fas fa-map"></i></div>
+                    <h3>خريطة PUBG التكتيكية</h3>
+                    <p>خريطة تكتيكية تفاعلية لرسم الخطط</p>
+                    <button class="service-btn" style="background:#22c55e18;border:1.5px solid #22c55e44;color:#22c55e;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
+                </div>
+                <div class="service-card" onclick="openService('tournament-banner','بنر البطولة')">
+                    <div class="service-badge esports-badge"><i class="fas fa-gamepad"></i> إيسبورت</div>
+                    <div class="service-icon" style="color:#f97316"><i class="fas fa-flag"></i></div>
+                    <h3>بنر البطولة</h3>
+                    <p>صمّم بنر احترافي لبطولتك</p>
+                    <button class="service-btn" style="background:#f9731618;border:1.5px solid #f9731644;color:#f97316;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
+                </div>
+                <div class="service-card" onclick="openService('player-stats','إحصائيات اللاعب')">
+                    <div class="service-badge esports-badge"><i class="fas fa-gamepad"></i> إيسبورت</div>
+                    <div class="service-icon" style="color:#8b5cf6"><i class="fas fa-user-chart"></i></div>
+                    <h3>إحصائيات اللاعب</h3>
+                    <p>أنشئ بطاقة إحصائيات مميزة</p>
+                    <button class="service-btn" style="background:#8b5cf618;border:1.5px solid #8b5cf644;color:#8b5cf6;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
+                </div>
+                <div class="service-card" onclick="openService('highlight-maker','صانع الهايلايت')">
+                    <div class="service-badge esports-badge"><i class="fas fa-gamepad"></i> إيسبورت</div>
+                    <div class="service-icon" style="color:#ec4899"><i class="fas fa-star"></i></div>
+                    <h3>صانع الهايلايت</h3>
+                    <p>أنشئ هايلايت رول احترافي</p>
+                    <button class="service-btn" style="background:#ec489918;border:1.5px solid #ec489944;color:#ec4899;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
+                </div>
+                <div class="service-card" onclick="openService('transitions','انتقالات البث')">
+                    <div class="service-badge esports-badge"><i class="fas fa-gamepad"></i> إيسبورت</div>
+                    <div class="service-icon" style="color:#14b8a6"><i class="fas fa-film"></i></div>
+                    <h3>انتقالات البث</h3>
+                    <p>أنشئ مقاطع انتقال مميزة للبث</p>
+                    <button class="service-btn" style="background:#14b8a618;border:1.5px solid #14b8a644;color:#14b8a6;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
                 </div>
 
-                <!-- 📝 إضافة نص على الفيديو -->
-                <div class="service-card premium-service new-badge-card" onclick="checkServiceAccess('text-overlay', 'إضافة نص على الفيديو')">
-                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
-                    <div class="service-new-tag">جديد ✨</div>
-                    <div class="service-icon"><i class="fas fa-font"></i></div>
-                    <h3>إضافة نص على الفيديو</h3>
-                    <p>أضف عناوين ونصوص احترافية بألوان وخطوط وموضع تختاره أنت</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> ألوان حرة</span>
-                        <span><i class="fas fa-check"></i> موضع حر</span>
-                        <span><i class="fas fa-check"></i> معاينة مباشرة</span>
-                    </div>
-                    <button class="service-btn premium-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
+                <!-- ═══ سكرمات ═══ -->
+                <div style="grid-column:1/-1;margin:1.5rem 0 .5rem;padding-top:.8rem;border-top:1px solid rgba(255,255,255,.06)">
+                    <span style="color:#ff9800;font-size:.85rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px"><i class="fas fa-crosshairs"></i> خدمات السكرمات — PUBG Mobile</span>
                 </div>
-
-                <!-- 🤖 محرر AI بالأوامر الطبيعية -->
-                <div class="service-card premium-service new-badge-card ai-card" onclick="checkServiceAccess('ai-editor', 'محرر الذكاء الاصطناعي')">
-                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
-                    <div class="service-new-tag ai-tag">AI 🤖</div>
-                    <div class="service-icon ai-icon"><i class="fas fa-robot"></i></div>
-                    <h3>محرر الذكاء الاصطناعي</h3>
-                    <p>اكتب بلغة عربية طبيعية مثل "اقطع الفيديو من الثانية 10 إلى 30" وسينفذ AI الأمر</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> أوامر عربية</span>
-                        <span><i class="fas fa-check"></i> ذكاء اصطناعي</span>
-                        <span><i class="fas fa-check"></i> تنفيذ تلقائي</span>
-                    </div>
-                    <button class="service-btn ai-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
+                
+                <div class="service-card" onclick="openService('scr-manager','مدير الروم المباشر')">
+                    <div class="service-badge esports-badge"><i class="fas fa-gamepad"></i> إيسبورت</div>
+                    <div class="service-icon" style="color:#ff9800"><i class="fas fa-home"></i></div>
+                    <h3>مدير الروم المباشر</h3>
+                    <p>كود الروم + مؤقت الجولات + مشاركة فورية</p>
+                    <button class="service-btn" style="background:#ff980018;border:1.5px solid #ff980044;color:#ff9800;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
                 </div>
-                <!-- 🎭 إزالة خلفية الفيديو -->
-                <div class="service-card premium-service new-badge-card" onclick="checkServiceAccess('bg-remover', 'إزالة خلفية الفيديو')">
-                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
-                    <div class="service-new-tag">جديد ✨</div>
-                    <div class="service-icon" style="color:#7c3aed"><i class="fas fa-magic"></i></div>
-                    <h3>إزالة خلفية الفيديو</h3>
-                    <p>احذف الخلفية تلقائياً بـ Chroma Key واختر شفاف أو خلفية بديلة</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> Chroma Key</span>
-                        <span><i class="fas fa-check"></i> اختيار اللون</span>
-                        <span><i class="fas fa-check"></i> خلفية بديلة</span>
-                    </div>
-                    <button class="service-btn premium-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
+                <div class="service-card" onclick="openService('scr-schedule','منشئ جدول السكرم')">
+                    <div class="service-badge esports-badge"><i class="fas fa-gamepad"></i> إيسبورت</div>
+                    <div class="service-icon" style="color:#ffcc00"><i class="fas fa-calendar-alt"></i></div>
+                    <h3>منشئ جدول السكرم</h3>
+                    <p>جدول زمني بمواعيد الجولات والخرائط</p>
+                    <button class="service-btn" style="background:#ffcc0018;border:1.5px solid #ffcc0044;color:#ffcc00;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
                 </div>
-
-                <!-- 🌊 دمج فيديو فوق فيديو -->
-                <div class="service-card premium-service new-badge-card" onclick="checkServiceAccess('video-overlay', 'دمج فيديو فوق فيديو')">
-                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
-                    <div class="service-new-tag">جديد ✨</div>
-                    <div class="service-icon" style="color:#00bcd4"><i class="fas fa-layer-group"></i></div>
-                    <h3>دمج فيديو فوق فيديو</h3>
-                    <p>ضع فيديو فوق فيديو آخر مع إزالة Green/Blue Screen تلقائياً</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> Green Screen</span>
-                        <span><i class="fas fa-check"></i> تحكم الحجم</span>
-                        <span><i class="fas fa-check"></i> تحكم الموضع</span>
-                    </div>
-                    <button class="service-btn premium-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
+                <div class="service-card" onclick="openService('scr-stats','محلل إحصائيات السكرم')">
+                    <div class="service-badge esports-badge"><i class="fas fa-gamepad"></i> إيسبورت</div>
+                    <div class="service-icon" style="color:#ff6655"><i class="fas fa-chart-bar"></i></div>
+                    <h3>محلل إحصائيات السكرم</h3>
+                    <p>ترتيب نهائي بنظام PUBG أو WWC</p>
+                    <button class="service-btn" style="background:#ff665518;border:1.5px solid #ff665544;color:#ff6655;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
                 </div>
-
-                <!-- 🎵 إضافة صوت على مقطع فيديو -->
-                <div class="service-card premium-service new-badge-card" onclick="checkServiceAccess('audio-adder', 'إضافة صوت على مقطع فيديو')">
-                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
-                    <div class="service-new-tag">جديد ✨</div>
-                    <div class="service-icon" style="color:#00bcd4"><i class="fas fa-music"></i></div>
-                    <h3>إضافة صوت على مقطع فيديو</h3>
-                    <p>ارفع مقطع فيديو وملف صوتي — يتم دمج الصوت مع الفيديو بشكل احترافي مع التحكم بمستوى الصوت والتوقيت</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> دمج احترافي</span>
-                        <span><i class="fas fa-check"></i> تحكم بالصوت</span>
-                        <span><i class="fas fa-check"></i> جودة أصلية</span>
-                    </div>
-                    <div class="format-list">
-                        <span>MP4</span><span>MP3</span><span>WAV</span>
-                    </div>
-                    <button class="service-btn premium-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
+                <div class="service-card" onclick="openService('scr-announce','منشئ إعلان الروم')">
+                    <div class="service-badge esports-badge"><i class="fas fa-gamepad"></i> إيسبورت</div>
+                    <div class="service-icon" style="color:#aa66ff"><i class="fas fa-bullhorn"></i></div>
+                    <h3>منشئ إعلان الروم</h3>
+                    <p>إعلانات احترافية — 4 ثيمات وأحجام</p>
+                    <button class="service-btn" style="background:#aa66ff18;border:1.5px solid #aa66ff44;color:#aa66ff;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
                 </div>
-
-                <!-- 🎭 جعل الفيديو شفاف -->
-                <div class="service-card premium-service new-badge-card" onclick="checkServiceAccess('transparent-video', 'جعل الفيديو شفاف')">
-                    <div class="service-badge premium-badge"><i class="fas fa-crown"></i> مدفوع</div>
-                    <div class="service-new-tag">جديد ✨</div>
-                    <div class="service-icon" style="color:#a855f7"><i class="fas fa-eye-slash"></i></div>
-                    <h3>جعل الفيديو شفاف</h3>
-                    <p>حوّل يرتك أو أي فيديو إلى WebM شفاف — يشتغل فوق لعبتك بدون خلفية، مثالي للستريمرز على OBS وStreamlabs</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> شفافية كاملة</span>
-                        <span><i class="fas fa-check"></i> Chroma Key</span>
-                        <span><i class="fas fa-check"></i> مثالي للـ OBS</span>
-                    </div>
-                    <div class="format-list">
-                        <span>WebM</span><span>Alpha</span><span>OBS</span>
-                    </div>
-                    <button class="service-btn premium-btn"><i class="fas fa-lock"></i> تسجيل دخول</button>
+                <div class="service-card" onclick="openService('scr-dropzones','مخطط مناطق الهبوط')">
+                    <div class="service-badge esports-badge"><i class="fas fa-gamepad"></i> إيسبورت</div>
+                    <div class="service-icon" style="color:#44ff88"><i class="fas fa-map-marked-alt"></i></div>
+                    <h3>مخطط مناطق الهبوط</h3>
+                    <p>توزيع عادل على 5 خرائط ببجي</p>
+                    <button class="service-btn" style="background:#44ff8818;border:1.5px solid #44ff8844;color:#44ff88;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
                 </div>
-
-
-<!-- ================================================================
-     esports-cards.html — Eyad_Eyad12
-     10 بطاقات خدمات الإيسبورت — ببجي موبايل
-     
-     طريقة الإضافة:
-     1. افتح index.html
-     2. ابحث عن: <!-- 🎭 جعل الفيديو شفاف → آخر بطاقة خدمة
-     3. ابحث عن السطر بعدها: </div> (إغلاق services-grid)
-     4. الصق هذا الكود قبل ذلك السطر مباشرةً
-     
-     أضف أيضاً في الـ <head>:
-       <link rel="stylesheet" href="esports-styles.css">
-    <link rel="stylesheet" href="services-upgrade.css">
-     
-     أضف قبل </body>:
-       <script src="esports-tools.js" defer></script>
-     ================================================================ -->
-
-<!-- ════════════════════════════════════════════════
-     ✦ قسم خدمات الإيسبورت — ببجي موبايل
-     ════════════════════════════════════════════════ -->
-
-<!-- بانر القسم -->
-<div class="esports-banner" style="margin-bottom:1.5rem">
-    <div class="esports-new-badge">🎮 خدمات الإيسبورت — جديدة</div>
-    <h3>🏆 خدمات الإيسبورت — PUBG Mobile</h3>
-    <p>أدوات احترافية للستريمرز والفرق والبطولات — كل الأدوات تعمل مباشرةً في المتصفح</p>
-</div>
-
-<!-- ─────────── 1. جدول الترتيب ─────────── -->
-<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('lb-creator','منشئ جدول الترتيب')">
-    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
-        <i class="fas fa-trophy"></i> إيسبورت
-    </div>
-    <div class="esports-tag">جديد 🔥</div>
-    <div class="service-icon" style="color:#00e5ff">
-        <i class="fas fa-list-ol"></i>
-    </div>
-    <h3>منشئ جدول الترتيب</h3>
-    <p>صمّم جداول ترتيب احترافية للبطولات مع حساب النقاط والقتلات وتنزيلها كـ PNG</p>
-    <div class="service-features" style="gap:.4rem">
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> حتى 16 فريق</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> تحديث فوري</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> تنزيل PNG</span>
-    </div>
-    <button class="service-btn esports-btn">
-        <i class="fas fa-lock"></i> تسجيل دخول
-    </button>
-</div>
-
-<!-- ─────────── 2. خريطة ببجي التكتيكية ─────────── -->
-<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('pubg-map','خريطة ببجي التكتيكية')">
-    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
-        <i class="fas fa-map"></i> إيسبورت
-    </div>
-    <div class="esports-tag">جديد 🔥</div>
-    <div class="service-icon" style="color:#00e5ff">
-        <i class="fas fa-map-marked-alt"></i>
-    </div>
-    <h3>خريطة ببجي التكتيكية</h3>
-    <p>خريطة تفاعلية لرسم الخطط والاستراتيجيات — تدعم Erangel, Miramar, Sanhok, Vikendi, Livik</p>
-    <div class="service-features" style="gap:.4rem">
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 5 خرائط</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> أدوات رسم</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> تصدير PNG</span>
-    </div>
-    <div class="format-list" style="margin:.5rem 0">
-        <span style="background:rgba(0,229,255,0.1);color:#ccc">✏️ رسم</span>
-        <span style="background:rgba(0,229,255,0.1);color:#ccc">➡️ سهم</span>
-        <span style="background:rgba(0,229,255,0.1);color:#ccc">⭕ دائرة</span>
-        <span style="background:rgba(0,229,255,0.1);color:#ccc">📍 دبوس</span>
-    </div>
-    <button class="service-btn esports-btn">
-        <i class="fas fa-lock"></i> تسجيل دخول
-    </button>
-</div>
-
-<!-- ─────────── 3. إطارات الكاميرا ─────────── -->
-<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('cam-frame','مصمّم إطار الكاميرا')">
-    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
-        <i class="fas fa-camera"></i> إيسبورت
-    </div>
-    <div class="esports-tag">رهيب 🔥</div>
-    <div class="service-icon" style="color:#00e5ff">
-        <i class="fas fa-camera-retro"></i>
-    </div>
-    <h3>مصمّم إطار الكاميرا</h3>
-    <p>أنشئ إطارات كاميرا احترافية لبثك مع توهج نيون وألوان مخصصة — مخرج PNG شفاف جاهز لـ OBS</p>
-    <div class="service-features" style="gap:.4rem">
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 8 أنماط</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> ألوان حرة</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> OBS جاهز</span>
-    </div>
-    <div class="format-list" style="margin:.5rem 0">
-        <span style="background:rgba(0,229,255,0.1);color:#ccc">PNG</span>
-        <span style="background:rgba(0,229,255,0.1);color:#ccc">512×512</span>
-        <span style="background:rgba(0,229,255,0.1);color:#ccc">1080p</span>
-    </div>
-    <button class="service-btn esports-btn">
-        <i class="fas fa-lock"></i> تسجيل دخول
-    </button>
-</div>
-
-<!-- ─────────── 4. أوفرلي البث الكامل ─────────── -->
-<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('stream-overlay','مُنشئ أوفرلي البث الكامل')">
-    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
-        <i class="fas fa-layer-group"></i> إيسبورت
-    </div>
-    <div class="esports-tag">جديد 🔥</div>
-    <div class="service-icon" style="color:#00e5ff">
-        <i class="fas fa-desktop"></i>
-    </div>
-    <h3>مُنشئ أوفرلي البث الكامل</h3>
-    <p>صمّم أوفرلي متكامل للبث — صحة، قتلات، خريطة صغيرة، حالة الفريق، مؤقت الدائرة</p>
-    <div class="service-features" style="gap:.4rem">
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 1920×1080</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 7 عناصر</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 5 ثيمات</span>
-    </div>
-    <button class="service-btn esports-btn">
-        <i class="fas fa-lock"></i> تسجيل دخول
-    </button>
-</div>
-
-<!-- ─────────── 5. منشئ شعارات الفرق ─────────── -->
-<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('team-logo','مُنشئ شعار الفريق')">
-    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
-        <i class="fas fa-shield-alt"></i> إيسبورت
-    </div>
-    <div class="esports-tag">جديد 🔥</div>
-    <div class="service-icon" style="color:#00e5ff">
-        <i class="fas fa-shield-alt"></i>
-    </div>
-    <h3>مُنشئ شعار الفريق</h3>
-    <p>أنشئ شعارات احترافية لفريقك — درع، سداسي، دائرة، نجمة، ماسة مع ألوان مخصصة كاملة</p>
-    <div class="service-features" style="gap:.4rem">
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 5 أشكال</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> ألوان حرة</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> PNG عالي الجودة</span>
-    </div>
-    <button class="service-btn esports-btn">
-        <i class="fas fa-lock"></i> تسجيل دخول
-    </button>
-</div>
-
-<!-- ─────────── 6. بنر البطولات ─────────── -->
-<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('tournament-banner','مصمّم بنر البطولة')">
-    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
-        <i class="fas fa-trophy"></i> إيسبورت
-    </div>
-    <div class="esports-tag">جديد 🔥</div>
-    <div class="service-icon" style="color:#00e5ff">
-        <i class="fas fa-flag"></i>
-    </div>
-    <h3>مصمّم بنر البطولة</h3>
-    <p>صمّم بنرات وإعلانات احترافية لبطولاتك — اسم البطولة، التاريخ، الجائزة بأنماط متعددة</p>
-    <div class="service-features" style="gap:.4rem">
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 5 أنماط</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 3 أحجام</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> PNG احترافي</span>
-    </div>
-    <div class="format-list" style="margin:.5rem 0">
-        <span style="background:rgba(0,229,255,0.1);color:#ccc">1920×1080</span>
-        <span style="background:rgba(0,229,255,0.1);color:#ccc">1280×720</span>
-        <span style="background:rgba(0,229,255,0.1);color:#ccc">1080×1350</span>
-    </div>
-    <button class="service-btn esports-btn">
-        <i class="fas fa-lock"></i> تسجيل دخول
-    </button>
-</div>
-
-<!-- ─────────── 7. إحصائيات اللاعب ─────────── -->
-<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('player-stats','بطاقة إحصائيات اللاعب')">
-    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
-        <i class="fas fa-chart-bar"></i> إيسبورت
-    </div>
-    <div class="esports-tag">جديد 🔥</div>
-    <div class="service-icon" style="color:#00e5ff">
-        <i class="fas fa-chart-line"></i>
-    </div>
-    <h3>بطاقة إحصائيات اللاعب</h3>
-    <p>أنشئ بطاقة إحصائيات تفصيلية — K/D، Win Rate، الضرر، القتلات، الرتبة بتصميم احترافي</p>
-    <div class="service-features" style="gap:.4rem">
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 6 إحصائيات</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 4 ثيمات</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> PNG شاملة</span>
-    </div>
-    <button class="service-btn esports-btn">
-        <i class="fas fa-lock"></i> تسجيل دخول
-    </button>
-</div>
-
-<!-- ─────────── 8. منشئ الهايلايت ─────────── -->
-<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('highlight-maker','منشئ قائمة الهايلايت')">
-    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
-        <i class="fas fa-star"></i> إيسبورت
-    </div>
-    <div class="esports-tag">جديد 🔥</div>
-    <div class="service-icon" style="color:#00e5ff">
-        <i class="fas fa-film"></i>
-    </div>
-    <h3>منشئ قائمة الهايلايت</h3>
-    <p>سجّل توقيتات أفضل لحظاتك أثناء البث — قتلات، Clutch، إنقاذ — وصدّرها كملف منظم</p>
-    <div class="service-features" style="gap:.4rem">
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 8 فئات</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> تصدير TXT</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> تصدير HTML</span>
-    </div>
-    <button class="service-btn esports-btn">
-        <i class="fas fa-lock"></i> تسجيل دخول
-    </button>
-</div>
-
-<!-- ─────────── 9. خلفيات البث ─────────── -->
-<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('stream-bg','مصمّم خلفية البث')">
-    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
-        <i class="fas fa-image"></i> إيسبورت
-    </div>
-    <div class="esports-tag">جديد 🔥</div>
-    <div class="service-icon" style="color:#00e5ff">
-        <i class="fas fa-photo-video"></i>
-    </div>
-    <h3>مصمّم خلفية البث</h3>
-    <p>خلفيات احترافية بثيمات ببجي — فضاء، أدغال، صحراء، فيكندي، نار وأكثر مع تأثيرات بصرية</p>
-    <div class="service-features" style="gap:.4rem">
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 8 ثيمات</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 5 تأثيرات</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> حتى 4K</span>
-    </div>
-    <div class="format-list" style="margin:.5rem 0">
-        <span style="background:rgba(0,229,255,0.1);color:#ccc">1080p</span>
-        <span style="background:rgba(0,229,255,0.1);color:#ccc">1440p</span>
-        <span style="background:rgba(0,229,255,0.1);color:#ccc">4K</span>
-    </div>
-    <button class="service-btn esports-btn">
-        <i class="fas fa-lock"></i> تسجيل دخول
-    </button>
-</div>
-
-<!-- ─────────── 10. الانتقالات السينمائية ─────────── -->
-<div class="service-card esports-card new-badge-card" onclick="checkServiceAccess('transitions','مُنشئ الانتقالات السينمائية')">
-    <div class="service-badge" style="background:linear-gradient(135deg,#00e5ff,#0077ff);color:#000">
-        <i class="fas fa-film"></i> إيسبورت
-    </div>
-    <div class="esports-tag">حصري ⚡</div>
-    <div class="service-icon" style="color:#00e5ff">
-        <i class="fas fa-exchange-alt"></i>
-    </div>
-    <h3>مُنشئ الانتقالات السينمائية</h3>
-    <p>انتقالات احترافية بين مشاهد البث — خاطف، موجة، انفجار، دوران، تشويش وأكثر مع معاينة حية</p>
-    <div class="service-features" style="gap:.4rem">
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> 8 أنواع</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> معاينة حية</span>
-        <span style="background:rgba(0,229,255,0.12);color:#00e5ff;border-color:rgba(0,229,255,0.3)"><i class="fas fa-check"></i> OBS جاهز</span>
-    </div>
-    <div class="format-list" style="margin:.5rem 0">
-        <span style="background:rgba(0,229,255,0.1);color:#ccc">PNG</span>
-        <span style="background:rgba(0,229,255,0.1);color:#ccc">CSS Code</span>
-        <span style="background:rgba(0,229,255,0.1);color:#ccc">OBS</span>
-    </div>
-    <button class="service-btn esports-btn">
-        <i class="fas fa-lock"></i> تسجيل دخول
-    </button>
-</div>
-<!-- ─── 11. أوفرلي البث المباشر ─── -->
-<div class="service-card esports-card new-badge-card" style="position:relative;overflow:hidden;border-color:rgba(255,68,68,0.4)!important" onclick="checkServiceAccess('live-overlay','أوفرلي البث المباشر 🔴')">
-    <div class="service-badge" style="background:linear-gradient(135deg,#cc0000,#880000);color:#fff;border:none"><i class="fas fa-broadcast-tower"></i> مباشر</div>
-    <div style="position:absolute;top:12px;left:14px;background:linear-gradient(135deg,#ff4444,#cc0000);color:#fff;padding:3px 10px;border-radius:12px;font-size:.72rem;font-weight:800;z-index:2">🔴 حصري</div>
-    <div class="service-icon" style="color:#ff4444;margin-top:.5rem"><i class="fas fa-trophy"></i></div>
-    <h3 style="color:#ff6655">أوفرلي البث المباشر 🔴</h3>
-    <p>جدول ترتيب حي لبثك — تحكم بحالة اللاعبين والنقاط والقتلات ويظهر على OBS فوراً</p>
-    <div class="service-features" style="gap:.35rem">
-        <span style="background:rgba(255,68,68,.12);color:#ff8855;border-color:rgba(255,68,68,.3)"><i class="fas fa-check"></i> تحديث فوري</span>
-        <span style="background:rgba(255,68,68,.12);color:#ff8855;border-color:rgba(255,68,68,.3)"><i class="fas fa-check"></i> OBS جاهز</span>
-        <span style="background:rgba(255,68,68,.12);color:#ff8855;border-color:rgba(255,68,68,.3)"><i class="fas fa-check"></i> 20 فريق</span>
-    </div>
-    <button class="service-btn" style="background:linear-gradient(135deg,rgba(255,68,68,.15),rgba(200,0,0,.1));border:1.5px solid rgba(255,68,68,.4);color:#ff6655;font-weight:700">
-        <i class="fas fa-lock"></i> تسجيل دخول
-    </button>
-</div>
+                <div class="service-card" onclick="openService('scr-rules','منشئ قواعد البطولة')">
+                    <div class="service-badge esports-badge"><i class="fas fa-gamepad"></i> إيسبورت</div>
+                    <div class="service-icon" style="color:#44ddff"><i class="fas fa-file-contract"></i></div>
+                    <h3>منشئ قواعد البطولة</h3>
+                    <p>قواعد رسمية جاهزة — PUBG/WWC</p>
+                    <button class="service-btn" style="background:#44ddff18;border:1.5px solid #44ddff44;color:#44ddff;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
+                </div>
+                <div class="service-card" onclick="openService('live-overlay','أوفرلي البث المباشر 🔴')">
+                    <div class="service-badge esports-badge"><i class="fas fa-gamepad"></i> إيسبورت</div>
+                    <div class="service-icon" style="color:#ff4444"><i class="fas fa-trophy"></i></div>
+                    <h3>أوفرلي البث المباشر 🔴</h3>
+                    <p>جدول ترتيب حي مع OCR و PUBG API</p>
+                    <button class="service-btn" style="background:#ff444418;border:1.5px solid #ff444444;color:#ff4444;font-weight:700">
+                        <i class="fas fa-play"></i> فتح الخدمة مجاناً
+                    </button>
+                </div>
 
             </div>
         </div>
     </section>
 
-
-
+    <!-- ══ قسم الخدمات المدفوعة ══ -->
+    <section id="paid-services" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-gem"></i> 💎 الخدمات المدفوعة</h2>
+                <p class="section-subtitle">خدمات احترافية متكاملة — اطلب وسننجزها لك بأعلى جودة</p>
+            </div>
+            <div id="ps_section"></div>
+        </div>
+    </section>
     <!-- ══ قسم اليرتات ══ -->
     <section id="alerts" class="section">
         <div class="container">
@@ -2215,10 +1845,17 @@
         </div>
     </div>
 
+    <script src="paid-services.js" defer></script>
+    <script src="admin-paid.js" defer></script>
+    <script src="video-ffmpeg-fix.js" defer></script>
+    <script src="scrimmage-services.js" defer></script>
     <script src="script.js"></script>
-    <script src="video-quality-fix.js" defer></script>
+    <script src="admin-upgrade.js" defer></script>
     <script src="services-upgrade.js" defer></script>
     <script src="live-overlay-service.js" defer></script>
     <script src="esports-tools.js" defer></script>
+    <script src="site-polish.js" defer></script>
+    <script src="effects.js" defer></script>
+    <script src="icons-animation.js" defer></script>
 </body>
 </html>

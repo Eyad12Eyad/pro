@@ -1,0 +1,105 @@
+/* ================================================================
+   button-click-animation.css — Eyad_Eyad12
+   تأثير ضغط + موجة (Ripple) احترافية على كل زر بالموقع
+================================================================ */
+
+/* ════ كل الأزرار قابلة للضغط بشكل مرن ════ */
+button, .service-btn, .pricing-btn, .sub-btn, .send-btn, .download-btn,
+.action-btn-service, .submit-purchase-btn, .login-submit-btn, .admin-login-btn,
+.ok-btn, .close-btn, .format-btn, .mode-btn, .speed-btn, .rotate-btn,
+.filter-card, .adm-btn, .esp-btn, .esp-dl-btn, .esp-style-btn, .esp-size-btn,
+.scr-btn, .st-run, .rv-save-btn, .rv-cancel-btn, .alert-contact-btn,
+.pkg-type-btn, .alert-filter-btn, .filter-btn, .export-btn, .add-user-btn,
+.website-card, .nav-link, .card-arrow, a.stb-btn, .chroma-preset,
+.upload-pick-btn, .file-upload-label, .bg-opt-btn {
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
+    transition: transform .16s cubic-bezier(.4,0,.2,1),
+                box-shadow .16s ease,
+                filter .16s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ════ لحظة الضغط: انكماش خفيف + توهج ════ */
+button:active,
+.service-btn:active, .pricing-btn:active, .sub-btn:active, .send-btn:active,
+.download-btn:active, .action-btn-service:active, .submit-purchase-btn:active,
+.login-submit-btn:active, .admin-login-btn:active, .ok-btn:active,
+.format-btn:active, .mode-btn:active, .speed-btn:active, .rotate-btn:active,
+.filter-card:active, .adm-btn:active, .esp-btn:active, .esp-dl-btn:active,
+.scr-btn:active, .st-run:active, .rv-save-btn:active, .rv-cancel-btn:active,
+.alert-contact-btn:active, .pkg-type-btn:active, .export-btn:active,
+.add-user-btn:active, .upload-pick-btn:active, .file-upload-label:active {
+    transform: scale(.94) translateZ(0);
+    filter: brightness(.92);
+}
+
+/* الأزرار الدائرية (إغلاق، حذف...) تدور قليلاً عند الضغط */
+.close-btn:active { transform: scale(.88) rotate(-15deg); }
+.action-btn:active { transform: scale(.85); }
+
+/* البطاقات القابلة للنقر (خدمات/يرتات/أسعار) تنكمش بلطف */
+.service-card:active, .esp-card:active, .alert-card:active,
+.website-card:active, .pricing-card:active, .ps-card:active {
+    transform: scale(.985) translateY(-2px);
+}
+
+/* ════════════════════════════════════════════
+   موجة الضغط (Ripple) — تُضاف ديناميكياً بواسطة JS
+   ════════════════════════════════════════════ */
+.btn-ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,.55);
+    transform: scale(0);
+    opacity: .9;
+    pointer-events: none;
+    animation: btnRippleAnim .6s cubic-bezier(.4,0,.2,1) forwards;
+    z-index: 5;
+    mix-blend-mode: overlay;
+}
+@keyframes btnRippleAnim {
+    to {
+        transform: scale(2.6);
+        opacity: 0;
+    }
+}
+
+/* ألوان موجة مختلفة حسب نوع الزر */
+.download-btn .btn-ripple,
+.rv-save-btn .btn-ripple,
+.export-btn .btn-ripple,
+.add-user-btn .btn-ripple,
+.action-btn-service .btn-ripple {
+    background: rgba(255,255,255,.65);
+}
+.close-btn .btn-ripple,
+.action-btn.delete .btn-ripple,
+.rv-cancel-btn .btn-ripple {
+    background: rgba(255,120,120,.55);
+}
+.admin-login-btn .btn-ripple,
+.pricing-icon ~ .pricing-btn .btn-ripple {
+    background: rgba(255,215,0,.55);
+}
+
+/* ════════════════════════════════════════════
+   ومضة توهج حول الزر عند النقر (Focus Glow)
+   ════════════════════════════════════════════ */
+@keyframes btnClickGlow {
+    0%   { box-shadow: 0 0 0 0 currentColor; }
+    60%  { box-shadow: 0 0 0 14px transparent; }
+    100% { box-shadow: 0 0 0 0 transparent; }
+}
+.btn-click-glow {
+    animation: btnClickGlow .5s ease-out;
+}
+
+/* ════════════════════════════════════════════
+   احترام تفضيل تقليل الحركة
+   ════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+    .btn-ripple { display: none !important; }
+    button, .service-btn, .pricing-btn, .sub-btn { transition: none !important; }
+}
